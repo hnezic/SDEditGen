@@ -4,6 +4,8 @@ import fastparse._, NoWhitespace._
 
 object Main extends App
 {
+    def program[_: P] : P[Program] = (title.? ~ objects ~ statements) . map { case (tit, obj, st) => Program(tit, obj, st) }
+
     def objects[_: P] : P[List[ObjectDecl]] = P( (key("objects") ~ str("{") ~ objectDecl.rep(1) ~ str("}")).map(_.toList) )
     def objectDecl[_: P] : P[ObjectDecl] = P( (ident ~ ident ~ flag.rep.map(_.toSet))
                                                .map { case (name, type_, flags) => ObjectDecl(name, type_, flags) } )
@@ -13,8 +15,14 @@ object Main extends App
     def statementsInBraces[_: P] : P[List[Statement]] = P( str("{") ~ statement.rep.map(_.toList) ~ str("}") )
     def statement[_: P] : P[Statement] = P( diagramLink )
 
+    // Method call, object creation
+    def arguments[_: P] : P[List[Argument]] = str("(") ~ argument.rep(sep=",").map(_.toList) ~ str(")")
+    def argument[_: P] : P[Argument] = ident . map(arg => Argument(arg))
+    def result[_: P] : P[Result] = key("return") ~ ident . map(r => Result(r))
+
     // Method, constructor, call
-    def code[_: P] : P[Code] = P( (key("code") ~ ident ~ statementsInBraces).map{ case (obj, st) => new Code(obj, st) } )
+    def constructor[_: P] : P[Constructor] = P( (key("constructor") ~ ident ~ statementsInBraces) . map{ case (obj, st) => new Constructor(obj, st) } )
+    def code[_: P] : P[Code] = P( (key("code") ~ ident ~ statementsInBraces) . map{ case (obj, st) => new Code(obj, st) } )
 
     // Notes, comments
     def diagramLink[_: P] : P[DiagramLink] = P( (key("diagramLink") ~ string ~ ident.? ~ number ~ optEnd)
@@ -33,10 +41,22 @@ object Main extends App
                         "call", "diagramLink", "fragment", "loop", "alt", "section", "title" )
     def white[_: P] : P[Unit] = P( CharIn(" \t\r\n").rep )
 
+    val input1 =
+        """objects {
+          | abc List named
+          | xyz Adapter
+          | whatever Test existing named
+          |}
+          |diagramLink "this is my link"  123
+          |diagramLink "another link" abc 4567 ;""".stripMargin
+
+    val input2 =
+        """diagramLink "this is my link"  123
+          |diagramLink "another link" abc 4567 ;
+        """.stripMargin
+
     println(
-        parse(
-            """diagramLink "this is my link"  123
-              |diagramLink "another link" abc 4567 ;
-            """.stripMargin, statements(_))
+        parse(input1, program(_))
+        // parse(input2, statements(_))
     )
 }
