@@ -21,31 +21,24 @@ object Main extends App with SDEditGenParser
 
     val input =
         """
-          | objects {
-          |     test AdapterTest named existing
-          |     adapter Adapter
-          |     manager Manager
-          |     context Context
-          | }
+          |title "Skills421 - BookingService"
           |
-          | code test {
-          |     create adapter
+          |objects {
+          |	delegate Actor existing
+          |	bs BookingService existing named
+          |	b Booking existing named
+          |	sc ScheduleCourse existing named
+          |}
           |
-          |     call adapter init
-          |         method adapter init {
-          |             create manager
-          |                 constructor manager {
-          |                     create context
-          |                 }
-          |         }
-          |
-          |     call manager manage(arg1, arg2)
-          |         method manager manage {
-          |             loop {
-          |                 call context getItem
-          |             }
-          |         }
-          | }
+          |code delegate {
+          |	call bs bookScheduledCourse (schedId,numPlaces) {
+          |		call b createBooking() {
+          |			call sc "[checkAvailability(schedId,numPlaces)='true']"
+          |			call sc allocatePlaces(schdedId,numPlaces)
+          |		}
+          |		call delegate "SUCCESS/FAILURE"
+          |	}
+          |}
         """.stripMargin
 
     val parseResult = parse(input, program(_))
