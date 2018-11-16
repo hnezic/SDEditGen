@@ -1,6 +1,7 @@
 package io.enezhrv
 
-package object sdedit {
+package object sdedit
+{
     type Arguments = Option[List[Argument]]
 
     val lineSep: String = System.lineSeparator
