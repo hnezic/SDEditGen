@@ -15,7 +15,7 @@ class Simple extends UnitTest
               | code test {
               |     create adapter
               |
-              |     call adapter init
+              |     call adapter.init
               |         method adapter init {
               |             create manager
               |                 constructor manager {

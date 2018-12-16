@@ -19,7 +19,7 @@ trait SDEditGenParser
     // Method call, object creation
     def objectCreation[_: P] : P[ObjectCreation] = P( (key("create") ~/ ident ~ arguments.? ~ result.? ~ optStatements)
                                                         . map { case (obj, args, res, st) => new ObjectCreation(obj, args, res, st) } )
-    def methodCall[_: P]: P[MethodCall] = P( (key("call") ~/ ident ~ methodName ~ arguments.? ~ result.? ~ optStatements)
+    def methodCall[_: P]: P[MethodCall] = P( (key("call") ~/ ident ~ dot.? ~ methodName ~ arguments.? ~ result.? ~ optStatements)
                                                         . map { case (obj, met, args, res, st) => new MethodCall(obj, met, args, res, st) } )
     def methodName[_: P] : P[String] = P( ident | string )
     def optStatements[_: P]: P[Option[List[Statement]]] = P( statementsInBraces.map(Option(_)) | optEnd.map (_ => None) )
@@ -53,6 +53,7 @@ trait SDEditGenParser
 
     // Tokens
     def comma[_: P] : P[Unit] = P( str(",") )
+    def dot[_: P] : P[Unit] = P( str(".") )
     def colon[_: P] : P[Unit] = P( str(":") )
     def optEnd[_: P] : P[Unit] = P( str(";").? )
 
