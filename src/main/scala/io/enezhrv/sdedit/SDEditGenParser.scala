@@ -52,9 +52,9 @@ trait SDEditGenParser
     def title[_: P] : P[Title]= P( (key("title") ~/ string ~ optEnd).map(t => Title(t)) )
 
     // Tokens
-    def comma[_: P] : P[Unit] = str(",")
-    def colon[_: P] : P[Unit] = str(":")
-    def optEnd[_: P] : P[Unit] = P( (str(";") ~ white ).? )
+    def comma[_: P] : P[Unit] = P( str(",") )
+    def colon[_: P] : P[Unit] = P( str(":") )
+    def optEnd[_: P] : P[Unit] = P( str(";").? )
 
     def ident[_: P] : P[String] = P( ( CharIn("a-zA-Z_").! ~ CharsWhileIn("a-zA-Z0-9_").rep.! )
         .map { case (first, rest) => first + rest }. filter( ! keywords.contains(_) ) ~ white )

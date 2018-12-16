@@ -8,8 +8,8 @@ class WithoutStatements extends UnitTest
               | objects {
               |     test AdapterTest named existing
               |     adapter Adapter
-              |     manager Manager
-              |     context Context
+              |     manager:Manager
+              |     context: Context
               | }
             """.stripMargin
 
