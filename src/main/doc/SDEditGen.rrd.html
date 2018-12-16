@@ -1,0 +1,429 @@
+<html><head><style id="_defaultStyles">
+			:root { --background-color: #fdf6e3;
+--color: #333333;
+--font-family: -apple-system, system-ui, "Segoe WPC", "Segoe UI", HelveticaNeue-Light, Ubuntu, "Droid Sans", sans-serif;
+--font-size: 13px;
+--font-weight: normal;
+--link-active-color: #006ab1;
+--link-color: #006ab1;
+--vscode-activityBar-background: #ddd6c1;
+--vscode-activityBar-dropBackground: #eee8d5;
+--vscode-activityBar-foreground: #584c27;
+--vscode-activityBar-inactiveForeground: rgba(88, 76, 39, 0.6);
+--vscode-activityBarBadge-background: #b58900;
+--vscode-activityBarBadge-foreground: #ffffff;
+--vscode-badge-background: rgba(181, 137, 0, 0.67);
+--vscode-badge-foreground: #333333;
+--vscode-breadcrumb-activeSelectionForeground: #4e4e4e;
+--vscode-breadcrumb-background: #fdf6e3;
+--vscode-breadcrumb-focusForeground: #4e4e4e;
+--vscode-breadcrumb-foreground: rgba(97, 97, 97, 0.8);
+--vscode-breadcrumbPicker-background: #eee8d5;
+--vscode-button-background: #ac9d57;
+--vscode-button-foreground: #ffffff;
+--vscode-button-hoverBackground: #8b7e44;
+--vscode-debugExceptionWidget-background: #ddd6c1;
+--vscode-debugExceptionWidget-border: #ab395b;
+--vscode-debugToolBar-background: #ddd6c1;
+--vscode-descriptionForeground: #717171;
+--vscode-diffEditor-insertedTextBackground: rgba(155, 185, 85, 0.2);
+--vscode-diffEditor-removedTextBackground: rgba(255, 0, 0, 0.2);
+--vscode-dropdown-background: #eee8d5;
+--vscode-dropdown-border: #d3af86;
+--vscode-editor-background: #fdf6e3;
+--vscode-editor-findMatchBackground: #a8ac94;
+--vscode-editor-findMatchHighlightBackground: rgba(234, 92, 0, 0.33);
+--vscode-editor-findRangeHighlightBackground: rgba(180, 180, 180, 0.3);
+--vscode-editor-focusedStackFrameHighlightBackground: rgba(206, 231, 206, 0.45);
+--vscode-editor-font-family: -apple-system, system-ui, "Segoe WPC", "Segoe UI", HelveticaNeue-Light, Ubuntu, "Droid Sans", sans-serif;
+--vscode-editor-font-size: 13px;
+--vscode-editor-font-weight: normal;
+--vscode-editor-foreground: #333333;
+--vscode-editor-hoverHighlightBackground: rgba(173, 214, 255, 0.15);
+--vscode-editor-inactiveSelectionBackground: rgba(238, 232, 213, 0.5);
+--vscode-editor-lineHighlightBackground: #eee8d5;
+--vscode-editor-lineHighlightBorder: #eeeeee;
+--vscode-editor-rangeHighlightBackground: rgba(253, 255, 0, 0.2);
+--vscode-editor-selectionBackground: #eee8d5;
+--vscode-editor-selectionHighlightBackground: rgba(243, 239, 225, 0.6);
+--vscode-editor-snippetFinalTabstopHighlightBorder: rgba(10, 50, 100, 0.5);
+--vscode-editor-snippetTabstopHighlightBackground: rgba(10, 50, 100, 0.2);
+--vscode-editor-stackFrameHighlightBackground: rgba(255, 255, 102, 0.45);
+--vscode-editor-wordHighlightBackground: rgba(87, 87, 87, 0.25);
+--vscode-editor-wordHighlightStrongBackground: rgba(14, 99, 156, 0.25);
+--vscode-editorActiveLineNumber-foreground: #0b216f;
+--vscode-editorBracketMatch-background: rgba(0, 100, 0, 0.1);
+--vscode-editorBracketMatch-border: #b9b9b9;
+--vscode-editorCodeLens-foreground: #999999;
+--vscode-editorCursor-foreground: #657b83;
+--vscode-editorError-foreground: #d60a0a;
+--vscode-editorGroup-border: #ddd6c1;
+--vscode-editorGroup-dropBackground: rgba(221, 214, 193, 0.67);
+--vscode-editorGroupHeader-noTabsBackground: #fdf6e3;
+--vscode-editorGroupHeader-tabsBackground: #d9d2c2;
+--vscode-editorGutter-addedBackground: #81b88b;
+--vscode-editorGutter-background: #fdf6e3;
+--vscode-editorGutter-commentRangeForeground: #c5c5c5;
+--vscode-editorGutter-deletedBackground: #ca4b51;
+--vscode-editorGutter-modifiedBackground: #66afe0;
+--vscode-editorHint-foreground: #6c6c6c;
+--vscode-editorHoverWidget-background: #ccc4b0;
+--vscode-editorHoverWidget-border: #c8c8c8;
+--vscode-editorIndentGuide-activeBackground: rgba(8, 30, 37, 0.5);
+--vscode-editorIndentGuide-background: rgba(88, 110, 117, 0.5);
+--vscode-editorInfo-foreground: #008000;
+--vscode-editorLineNumber-activeForeground: #567983;
+--vscode-editorLineNumber-foreground: #237893;
+--vscode-editorLink-activeForeground: #0000ff;
+--vscode-editorMarkerNavigation-background: #ffffff;
+--vscode-editorMarkerNavigationError-background: #d60a0a;
+--vscode-editorMarkerNavigationInfo-background: #008000;
+--vscode-editorMarkerNavigationWarning-background: #117711;
+--vscode-editorOverviewRuler-addedForeground: rgba(0, 122, 204, 0.6);
+--vscode-editorOverviewRuler-border: rgba(127, 127, 127, 0.3);
+--vscode-editorOverviewRuler-bracketMatchForeground: #a0a0a0;
+--vscode-editorOverviewRuler-commonContentForeground: rgba(96, 96, 96, 0.4);
+--vscode-editorOverviewRuler-currentContentForeground: rgba(64, 200, 174, 0.5);
+--vscode-editorOverviewRuler-deletedForeground: rgba(0, 122, 204, 0.6);
+--vscode-editorOverviewRuler-errorForeground: rgba(255, 18, 18, 0.7);
+--vscode-editorOverviewRuler-findMatchForeground: rgba(246, 185, 77, 0.7);
+--vscode-editorOverviewRuler-incomingContentForeground: rgba(64, 166, 255, 0.5);
+--vscode-editorOverviewRuler-infoForeground: rgba(18, 18, 136, 0.7);
+--vscode-editorOverviewRuler-modifiedForeground: rgba(0, 122, 204, 0.6);
+--vscode-editorOverviewRuler-rangeHighlightForeground: rgba(0, 122, 204, 0.6);
+--vscode-editorOverviewRuler-selectionHighlightForeground: rgba(160, 160, 160, 0.8);
+--vscode-editorOverviewRuler-warningForeground: rgba(18, 136, 18, 0.7);
+--vscode-editorOverviewRuler-wordHighlightForeground: rgba(160, 160, 160, 0.8);
+--vscode-editorOverviewRuler-wordHighlightStrongForeground: rgba(192, 160, 192, 0.8);
+--vscode-editorPane-background: #fdf6e3;
+--vscode-editorRuler-foreground: #d3d3d3;
+--vscode-editorSuggestWidget-background: #eee8d5;
+--vscode-editorSuggestWidget-border: #c8c8c8;
+--vscode-editorSuggestWidget-foreground: #333333;
+--vscode-editorSuggestWidget-highlightForeground: #b58900;
+--vscode-editorSuggestWidget-selectedBackground: rgba(223, 202, 136, 0.4);
+--vscode-editorUnnecessaryCode-opacity: rgba(0, 0, 0, 0.47);
+--vscode-editorWarning-foreground: #117711;
+--vscode-editorWhitespace-foreground: rgba(88, 110, 117, 0.5);
+--vscode-editorWidget-background: #eee8d5;
+--vscode-editorWidget-border: #c8c8c8;
+--vscode-errorForeground: #a1260d;
+--vscode-extensionButton-prominentBackground: #b58900;
+--vscode-extensionButton-prominentForeground: #ffffff;
+--vscode-extensionButton-prominentHoverBackground: rgba(88, 76, 39, 0.67);
+--vscode-focusBorder: #d3af86;
+--vscode-foreground: #616161;
+--vscode-gitDecoration-addedResourceForeground: #587c0c;
+--vscode-gitDecoration-conflictingResourceForeground: #6c6cc4;
+--vscode-gitDecoration-deletedResourceForeground: #ad0707;
+--vscode-gitDecoration-ignoredResourceForeground: #8e8e90;
+--vscode-gitDecoration-modifiedResourceForeground: #895503;
+--vscode-gitDecoration-submoduleResourceForeground: #1258a7;
+--vscode-gitDecoration-untrackedResourceForeground: #007100;
+--vscode-input-background: #ddd6c1;
+--vscode-input-foreground: #586e75;
+--vscode-input-placeholderForeground: rgba(88, 110, 117, 0.67);
+--vscode-inputOption-activeBorder: #d3af86;
+--vscode-inputValidation-errorBackground: #f2dede;
+--vscode-inputValidation-errorBorder: #be1100;
+--vscode-inputValidation-infoBackground: #d6ecf2;
+--vscode-inputValidation-infoBorder: #007acc;
+--vscode-inputValidation-warningBackground: #f6f5d2;
+--vscode-inputValidation-warningBorder: #b89500;
+--vscode-list-activeSelectionBackground: #dfca88;
+--vscode-list-activeSelectionForeground: #6c6c6c;
+--vscode-list-dropBackground: rgba(223, 202, 136, 0.4);
+--vscode-list-errorForeground: #b01011;
+--vscode-list-focusBackground: rgba(223, 202, 136, 0.4);
+--vscode-list-highlightForeground: #b58900;
+--vscode-list-hoverBackground: rgba(223, 202, 136, 0.27);
+--vscode-list-inactiveFocusBackground: #d8dae6;
+--vscode-list-inactiveSelectionBackground: #d1cbb8;
+--vscode-list-invalidItemForeground: #b89500;
+--vscode-list-warningForeground: #117711;
+--vscode-menu-background: #eee8d5;
+--vscode-menu-selectionBackground: #dfca88;
+--vscode-menu-selectionForeground: #6c6c6c;
+--vscode-menu-separatorBackground: #888888;
+--vscode-menubar-selectionBackground: rgba(0, 0, 0, 0.1);
+--vscode-menubar-selectionForeground: #333333;
+--vscode-merge-commonContentBackground: rgba(96, 96, 96, 0.16);
+--vscode-merge-commonHeaderBackground: rgba(96, 96, 96, 0.4);
+--vscode-merge-currentContentBackground: rgba(64, 200, 174, 0.2);
+--vscode-merge-currentHeaderBackground: rgba(64, 200, 174, 0.5);
+--vscode-merge-incomingContentBackground: rgba(64, 166, 255, 0.2);
+--vscode-merge-incomingHeaderBackground: rgba(64, 166, 255, 0.5);
+--vscode-notificationCenterHeader-background: #e7dfc5;
+--vscode-notificationLink-foreground: #006ab1;
+--vscode-notifications-background: #eee8d5;
+--vscode-notifications-border: #e7dfc5;
+--vscode-panel-background: #fdf6e3;
+--vscode-panel-border: #ddd6c1;
+--vscode-panel-dropBackground: rgba(38, 119, 203, 0.18);
+--vscode-panelTitle-activeBorder: #ddd6c1;
+--vscode-panelTitle-activeForeground: #424242;
+--vscode-panelTitle-inactiveForeground: rgba(66, 66, 66, 0.75);
+--vscode-peekView-border: #b58900;
+--vscode-peekViewEditor-background: #fffbf2;
+--vscode-peekViewEditor-matchHighlightBackground: rgba(119, 68, 170, 0.25);
+--vscode-peekViewEditorGutter-background: #fffbf2;
+--vscode-peekViewResult-background: #eee8d5;
+--vscode-peekViewResult-fileForeground: #1e1e1e;
+--vscode-peekViewResult-lineForeground: #646465;
+--vscode-peekViewResult-matchHighlightBackground: rgba(234, 92, 0, 0.3);
+--vscode-peekViewResult-selectionBackground: rgba(51, 153, 255, 0.2);
+--vscode-peekViewResult-selectionForeground: #6c6c6c;
+--vscode-peekViewTitle-background: #eee8d5;
+--vscode-peekViewTitleDescription-foreground: rgba(108, 108, 108, 0.7);
+--vscode-peekViewTitleLabel-foreground: #333333;
+--vscode-pickerGroup-border: rgba(42, 161, 152, 0.6);
+--vscode-pickerGroup-foreground: rgba(42, 161, 152, 0.6);
+--vscode-progressBar-background: #b58900;
+--vscode-scrollbar-shadow: #dddddd;
+--vscode-scrollbarSlider-activeBackground: rgba(0, 0, 0, 0.6);
+--vscode-scrollbarSlider-background: #ece4cf;
+--vscode-scrollbarSlider-hoverBackground: rgba(100, 100, 100, 0.7);
+--vscode-selection-background: #ccc4b0;
+--vscode-settings-checkboxBackground: #eee8d5;
+--vscode-settings-checkboxBorder: #d3af86;
+--vscode-settings-dropdownBackground: #eee8d5;
+--vscode-settings-dropdownBorder: #d3af86;
+--vscode-settings-dropdownListBorder: #c8c8c8;
+--vscode-settings-headerForeground: #444444;
+--vscode-settings-modifiedItemIndicator: #66afe0;
+--vscode-settings-numberInputBackground: #ddd6c1;
+--vscode-settings-numberInputForeground: #586e75;
+--vscode-settings-textInputBackground: #ddd6c1;
+--vscode-settings-textInputForeground: #586e75;
+--vscode-sideBar-background: #eee8d5;
+--vscode-sideBar-dropBackground: rgba(255, 255, 255, 0.12);
+--vscode-sideBarSectionHeader-background: rgba(128, 128, 128, 0.2);
+--vscode-sideBarTitle-foreground: #586e75;
+--vscode-statusBar-background: #eee8d5;
+--vscode-statusBar-debuggingBackground: #eee8d5;
+--vscode-statusBar-debuggingForeground: #586e75;
+--vscode-statusBar-foreground: #586e75;
+--vscode-statusBar-noFolderBackground: #eee8d5;
+--vscode-statusBar-noFolderForeground: #586e75;
+--vscode-statusBarItem-activeBackground: rgba(255, 255, 255, 0.18);
+--vscode-statusBarItem-hoverBackground: rgba(255, 255, 255, 0.12);
+--vscode-statusBarItem-prominentBackground: #ddd6c1;
+--vscode-statusBarItem-prominentHoverBackground: rgba(221, 214, 193, 0.6);
+--vscode-tab-activeBackground: #fdf6e3;
+--vscode-tab-activeForeground: #333333;
+--vscode-tab-activeModifiedBorder: #33aaee;
+--vscode-tab-border: #ddd6c1;
+--vscode-tab-inactiveBackground: #d3cbb7;
+--vscode-tab-inactiveForeground: #586e75;
+--vscode-tab-inactiveModifiedBorder: rgba(51, 170, 238, 0.5);
+--vscode-tab-unfocusedActiveForeground: rgba(51, 51, 51, 0.7);
+--vscode-tab-unfocusedActiveModifiedBorder: rgba(51, 170, 238, 0.7);
+--vscode-tab-unfocusedInactiveForeground: rgba(88, 110, 117, 0.5);
+--vscode-tab-unfocusedInactiveModifiedBorder: rgba(51, 170, 238, 0.25);
+--vscode-terminal-ansiBlack: #073642;
+--vscode-terminal-ansiBlue: #268bd2;
+--vscode-terminal-ansiBrightBlack: #586e75;
+--vscode-terminal-ansiBrightBlue: #839496;
+--vscode-terminal-ansiBrightCyan: #93a1a1;
+--vscode-terminal-ansiBrightGreen: #586e75;
+--vscode-terminal-ansiBrightMagenta: #6c71c4;
+--vscode-terminal-ansiBrightRed: #cb4b16;
+--vscode-terminal-ansiBrightWhite: #eee8d5;
+--vscode-terminal-ansiBrightYellow: #657b83;
+--vscode-terminal-ansiCyan: #2aa198;
+--vscode-terminal-ansiGreen: #859900;
+--vscode-terminal-ansiMagenta: #d33682;
+--vscode-terminal-ansiRed: #dc322f;
+--vscode-terminal-ansiWhite: #eee8d5;
+--vscode-terminal-ansiYellow: #b58900;
+--vscode-terminal-background: #fdf6e3;
+--vscode-terminal-border: #ddd6c1;
+--vscode-terminal-foreground: #333333;
+--vscode-terminal-selectionBackground: rgba(0, 0, 0, 0.25);
+--vscode-textBlockQuote-background: rgba(127, 127, 127, 0.1);
+--vscode-textBlockQuote-border: rgba(0, 122, 204, 0.5);
+--vscode-textCodeBlock-background: rgba(220, 220, 220, 0.4);
+--vscode-textLink-activeForeground: #006ab1;
+--vscode-textLink-foreground: #006ab1;
+--vscode-textPreformat-foreground: #a31515;
+--vscode-textSeparator-foreground: rgba(0, 0, 0, 0.18);
+--vscode-titleBar-activeBackground: #eee8d5;
+--vscode-titleBar-activeForeground: #333333;
+--vscode-titleBar-inactiveBackground: rgba(238, 232, 213, 0.6);
+--vscode-titleBar-inactiveForeground: rgba(51, 51, 51, 0.6);
+--vscode-walkThrough-embeddedEditorBackground: rgba(0, 0, 0, 0.08);
+--vscode-widget-shadow: #a8a8a8; }
+
+			body {
+				background-color: var(--vscode-editor-background);
+				color: var(--vscode-editor-foreground);
+				font-family: var(--vscode-editor-font-family);
+				font-weight: var(--vscode-editor-font-weight);
+				font-size: var(--vscode-editor-font-size);
+				margin: 0;
+				padding: 0 20px;
+			}
+
+			img {
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			a {
+				color: var(--vscode-textLink-foreground);
+			}
+
+			a:hover {
+				color: var(--vscode-textLink-activeForeground);
+			}
+
+			a:focus,
+			input:focus,
+			select:focus,
+			textarea:focus {
+				outline: 1px solid -webkit-focus-ring-color;
+				outline-offset: -1px;
+			}
+
+			code {
+				color: var(--vscode-textPreformat-foreground);
+			}
+
+			blockquote {
+				background: var(--vscode-textBlockQuote-background);
+				border-color: var(--vscode-textBlockQuote-border);
+			}
+
+			::-webkit-scrollbar {
+				width: 10px;
+				height: 10px;
+			}
+
+			::-webkit-scrollbar-thumb {
+				background-color: var(--vscode-scrollbarSlider-background);
+			}
+			::-webkit-scrollbar-thumb:hover {
+				background-color: var(--vscode-scrollbarSlider-hoverBackground);
+			}
+			::-webkit-scrollbar-thumb:active {
+				background-color: var(--vscode-scrollbarSlider-activeBackground);
+			}
+			</style>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="light.css">
+    <link rel="stylesheet" type="text/css" href="dark.css">
+
+    <base href="file:///Users/hrvoje/Documents/ANTLR/SDEditGen.g4">
+</head>
+
+<body class="vscode-light">
+
+
+
+
+<div id="container"><h3>IDENT</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="418" height="110" viewBox="0 0 418 110"><g transform="translate(.5 .5)"><path d="M 20 45 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path><g><path d="M40 55h0"></path><path d="M378 55h0"></path><path d="M40 55h20"></path><g><path d="M60 55h0"></path><path d="M358 55h0"></path><g class="terminal"><path d="M60 55h0"></path><path d="M162 55h0"></path><rect x="60" y="44" width="102" height="22" rx="0" ry="0"></rect><text x="111" y="59">[a-zA-Z_]</text></g><path d="M162 55h10"></path><g><path d="M172 55h0"></path><path d="M358 55h0"></path><path d="M172 55a10 10 0 0 0 10 -10v-15a10 10 0 0 1 10 -10"></path><g><path d="M192 20h146"></path></g><path d="M338 20a10 10 0 0 1 10 10v15a10 10 0 0 0 10 10"></path><path d="M172 55h20"></path><g><path d="M192 55h0"></path><path d="M338 55h0"></path><path d="M192 55h10"></path><g class="terminal"><path d="M202 55h0"></path><path d="M328 55h0"></path><rect x="202" y="44" width="126" height="22" rx="0" ry="0"></rect><text x="265" y="59">[a-zA-Z0-9_]</text></g><path d="M328 55h10"></path><path d="M202 55a10 10 0 0 0 -10 10v15a10 10 0 0 0 10 10"></path><g><path d="M202 90h126"></path></g><path d="M328 90a10 10 0 0 0 10 -10v-15a10 10 0 0 0 -10 -10"></path></g><path d="M338 55h20"></path></g></g><path d="M358 55h20"></path></g><path d="M 378 55 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>
+
+    <h3>STRING</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="458" height="110" viewBox="0 0 458 110"><g transform="translate(.5 .5)"><path d="M 20 45 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path><g><path d="M40 55h0"></path><path d="M418 55h0"></path><path d="M40 55h20"></path><g><path d="M60 55h0"></path><path d="M398 55h0"></path><g class="terminal"><path d="M60 55h0"></path><path d="M114 55h0"></path><rect x="60" y="44" width="54" height="22" rx="0" ry="0"></rect><text x="87" y="59">'"'</text></g><path d="M114 55h10"></path><g><path d="M124 55h0"></path><path d="M334 55h0"></path><path d="M124 55a10 10 0 0 0 10 -10v-15a10 10 0 0 1 10 -10"></path><g><path d="M144 20h170"></path></g><path d="M314 20a10 10 0 0 1 10 10v15a10 10 0 0 0 10 10"></path><path d="M124 55h20"></path><g><path d="M144 55h0"></path><path d="M314 55h0"></path><path d="M144 55h10"></path><g><path d="M154 55h0"></path><path d="M304 55h0"></path><path d="M154 55h20"></path><g><path d="M174 55h0"></path><path d="M284 55h0"></path><g><path d="M174 55h0"></path><path d="M284 55h0"></path><g><path d="M174 55h0"></path><path d="M210 55h0"></path><text x="192" y="60" class="comment">not</text></g><path d="M210 55h10"></path><path d="M220 55h10"></path><g class="terminal"><path d="M230 55h0"></path><path d="M284 55h0"></path><rect x="230" y="44" width="54" height="22" rx="0" ry="0"></rect><text x="257" y="59">["]</text></g></g></g><path d="M284 55h20"></path></g><path d="M304 55h10"></path><path d="M154 55a10 10 0 0 0 -10 10v15a10 10 0 0 0 10 10"></path><g><path d="M154 90h150"></path></g><path d="M304 90a10 10 0 0 0 10 -10v-15a10 10 0 0 0 -10 -10"></path></g><path d="M314 55h20"></path></g><path d="M334 55h10"></path><g class="terminal"><path d="M344 55h0"></path><path d="M398 55h0"></path><rect x="344" y="44" width="54" height="22" rx="0" ry="0"></rect><text x="371" y="59">'"'</text></g></g><path d="M398 55h20"></path></g><path d="M 418 55 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>
+
+    <h3>NUMBER</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="210" height="86" viewBox="0 0 210 86"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M170 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M150 31h0"></path><g><path d="M60 31h0"></path><path d="M150 31h0"></path><path d="M60 31h10"></path><g class="terminal"><path d="M70 31h0"></path><path d="M140 31h0"></path><rect x="70" y="20" width="70" height="22" rx="0" ry="0"></rect><text x="105" y="35">[0-9]</text></g><path d="M140 31h10"></path><path d="M70 31a10 10 0 0 0 -10 10v15a10 10 0 0 0 10 10"></path><g><path d="M70 66h70"></path></g><path d="M140 66a10 10 0 0 0 10 -10v-15a10 10 0 0 0 -10 -10"></path></g></g><path d="M150 31h20"></path></g><path d="M 170 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>
+
+    <h3>WHITE</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="242" height="86" viewBox="0 0 242 86"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M202 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M182 31h0"></path><g><path d="M60 31h0"></path><path d="M182 31h0"></path><path d="M60 31h10"></path><g class="terminal"><path d="M70 31h0"></path><path d="M172 31h0"></path><rect x="70" y="20" width="102" height="22" rx="0" ry="0"></rect><text x="121" y="35">[ \t\n\r]</text></g><path d="M172 31h10"></path><path d="M70 31a10 10 0 0 0 -10 10v15a10 10 0 0 0 10 10"></path><g><path d="M70 66h102"></path></g><path d="M172 66a10 10 0 0 0 10 -10v-15a10 10 0 0 0 -10 -10"></path></g></g><path d="M182 31h20"></path></g><path d="M 202 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path></g></svg>
+
+    <h3>program</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="536" height="86" viewBox="0 0 536 86"><g transform="translate(.5 .5)"><path d="M 20 45 v 20 m 0 -10 h 20.5"></path><g><path d="M40 55h0"></path><path d="M496 55h0"></path><path d="M40 55h20"></path><g><path d="M60 55h0"></path><path d="M476 55h0"></path><g class="terminal"><path d="M60 55h0"></path><path d="M130 55h0"></path><rect x="60" y="44" width="70" height="22" rx="0" ry="0"></rect><text x="95" y="59">WHITE</text></g><path d="M130 55h10"></path><g><path d="M140 55h0"></path><path d="M250 55h0"></path><path d="M140 55a10 10 0 0 0 10 -10v-15a10 10 0 0 1 10 -10"></path><g><path d="M160 20h70"></path></g><path d="M230 20a10 10 0 0 1 10 10v15a10 10 0 0 0 10 10"></path><path d="M140 55h20"></path><g class="non-terminal"><path d="M160 55h0"></path><path d="M230 55h0"></path><rect x="160" y="44" width="70" height="22" rx="8" ry="8"></rect><text x="195" y="59">title</text></g><path d="M230 55h20"></path></g><path d="M250 55h10"></path><g class="non-terminal"><path d="M260 55h0"></path><path d="M346 55h0"></path><rect x="260" y="44" width="86" height="22" rx="8" ry="8"></rect><text x="303" y="59">objects</text></g><path d="M346 55h10"></path><path d="M356 55h10"></path><g class="non-terminal"><path d="M366 55h0"></path><path d="M476 55h0"></path><rect x="366" y="44" width="110" height="22" rx="8" ry="8"></rect><text x="421" y="59">statements</text></g></g><path d="M476 55h20"></path></g><path d="M 496 55 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>objects</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="520" height="86" viewBox="0 0 520 86"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M480 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M460 31h0"></path><g class="terminal"><path d="M60 31h0"></path><path d="M162 31h0"></path><rect x="60" y="20" width="102" height="22" rx="0" ry="0"></rect><text x="111" y="35">'objects'</text></g><path d="M162 31h10"></path><path d="M172 31h10"></path><g class="terminal"><path d="M182 31h0"></path><path d="M236 31h0"></path><rect x="182" y="20" width="54" height="22" rx="0" ry="0"></rect><text x="209" y="35">'{'</text></g><path d="M236 31h10"></path><path d="M246 31h10"></path><g><path d="M256 31h0"></path><path d="M386 31h0"></path><path d="M256 31h10"></path><g class="non-terminal"><path d="M266 31h0"></path><path d="M376 31h0"></path><rect x="266" y="20" width="110" height="22" rx="8" ry="8"></rect><text x="321" y="35">objectDecl</text></g><path d="M376 31h10"></path><path d="M266 31a10 10 0 0 0 -10 10v15a10 10 0 0 0 10 10"></path><g><path d="M266 66h110"></path></g><path d="M376 66a10 10 0 0 0 10 -10v-15a10 10 0 0 0 -10 -10"></path></g><path d="M386 31h10"></path><path d="M396 31h10"></path><g class="terminal"><path d="M406 31h0"></path><path d="M460 31h0"></path><rect x="406" y="20" width="54" height="22" rx="0" ry="0"></rect><text x="433" y="35">'}'</text></g></g><path d="M460 31h20"></path></g><path d="M 480 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>objectDecl</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="412" height="110" viewBox="0 0 412 110"><g transform="translate(.5 .5)"><path d="M 20 45 v 20 m 0 -10 h 20.5"></path><g><path d="M40 55h0"></path><path d="M372 55h0"></path><path d="M40 55h20"></path><g><path d="M60 55h0"></path><path d="M352 55h0"></path><g class="non-terminal"><path d="M60 55h0"></path><path d="M130 55h0"></path><rect x="60" y="44" width="70" height="22" rx="8" ry="8"></rect><text x="95" y="59">ident</text></g><path d="M130 55h10"></path><path d="M140 55h10"></path><g class="non-terminal"><path d="M150 55h0"></path><path d="M220 55h0"></path><rect x="150" y="44" width="70" height="22" rx="8" ry="8"></rect><text x="185" y="59">ident</text></g><path d="M220 55h10"></path><g><path d="M230 55h0"></path><path d="M352 55h0"></path><path d="M230 55a10 10 0 0 0 10 -10v-15a10 10 0 0 1 10 -10"></path><g><path d="M250 20h82"></path></g><path d="M332 20a10 10 0 0 1 10 10v15a10 10 0 0 0 10 10"></path><path d="M230 55h20"></path><g><path d="M250 55h0"></path><path d="M332 55h0"></path><path d="M250 55h10"></path><g class="non-terminal"><path d="M260 55h0"></path><path d="M322 55h0"></path><rect x="260" y="44" width="62" height="22" rx="8" ry="8"></rect><text x="291" y="59">flag</text></g><path d="M322 55h10"></path><path d="M260 55a10 10 0 0 0 -10 10v15a10 10 0 0 0 10 10"></path><g><path d="M260 90h62"></path></g><path d="M322 90a10 10 0 0 0 10 -10v-15a10 10 0 0 0 -10 -10"></path></g><path d="M332 55h20"></path></g></g><path d="M352 55h20"></path></g><path d="M 372 55 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>flag</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="230" height="108" viewBox="0 0 230 108"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M190 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h12"></path><path d="M158 31h12"></path><g class="terminal"><path d="M72 31h0"></path><path d="M158 31h0"></path><rect x="72" y="20" width="86" height="22" rx="0" ry="0"></rect><text x="115" y="35">'named'</text></g></g><path d="M170 31h20"></path><path d="M40 31a10 10 0 0 1 10 10v26a10 10 0 0 0 10 10"></path><g><path d="M60 77h0"></path><path d="M170 77h0"></path><g class="terminal"><path d="M60 77h0"></path><path d="M170 77h0"></path><rect x="60" y="66" width="110" height="22" rx="0" ry="0"></rect><text x="115" y="81">'existing'</text></g></g><path d="M170 77a10 10 0 0 0 10 -10v-26a10 10 0 0 1 10 -10"></path></g><path d="M 190 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>statements</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="282" height="110" viewBox="0 0 282 110"><g transform="translate(.5 .5)"><path d="M 20 45 v 20 m 0 -10 h 20.5"></path><g><path d="M40 55h0"></path><path d="M242 55h0"></path><path d="M40 55h20"></path><g><path d="M60 55h0"></path><path d="M222 55h0"></path><g><path d="M60 55h0"></path><path d="M222 55h0"></path><path d="M60 55a10 10 0 0 0 10 -10v-15a10 10 0 0 1 10 -10"></path><g><path d="M80 20h122"></path></g><path d="M202 20a10 10 0 0 1 10 10v15a10 10 0 0 0 10 10"></path><path d="M60 55h20"></path><g><path d="M80 55h0"></path><path d="M202 55h0"></path><path d="M80 55h10"></path><g class="non-terminal"><path d="M90 55h0"></path><path d="M192 55h0"></path><rect x="90" y="44" width="102" height="22" rx="8" ry="8"></rect><text x="141" y="59">statement</text></g><path d="M192 55h10"></path><path d="M90 55a10 10 0 0 0 -10 10v15a10 10 0 0 0 10 10"></path><g><path d="M90 90h102"></path></g><path d="M192 90a10 10 0 0 0 10 -10v-15a10 10 0 0 0 -10 -10"></path></g><path d="M202 55h20"></path></g></g><path d="M222 55h20"></path></g><path d="M 242 55 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>statementsInBraces</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="410" height="110" viewBox="0 0 410 110"><g transform="translate(.5 .5)"><path d="M 20 45 v 20 m 0 -10 h 20.5"></path><g><path d="M40 55h0"></path><path d="M370 55h0"></path><path d="M40 55h20"></path><g><path d="M60 55h0"></path><path d="M350 55h0"></path><g class="terminal"><path d="M60 55h0"></path><path d="M114 55h0"></path><rect x="60" y="44" width="54" height="22" rx="0" ry="0"></rect><text x="87" y="59">'{'</text></g><path d="M114 55h10"></path><g><path d="M124 55h0"></path><path d="M286 55h0"></path><path d="M124 55a10 10 0 0 0 10 -10v-15a10 10 0 0 1 10 -10"></path><g><path d="M144 20h122"></path></g><path d="M266 20a10 10 0 0 1 10 10v15a10 10 0 0 0 10 10"></path><path d="M124 55h20"></path><g><path d="M144 55h0"></path><path d="M266 55h0"></path><path d="M144 55h10"></path><g class="non-terminal"><path d="M154 55h0"></path><path d="M256 55h0"></path><rect x="154" y="44" width="102" height="22" rx="8" ry="8"></rect><text x="205" y="59">statement</text></g><path d="M256 55h10"></path><path d="M154 55a10 10 0 0 0 -10 10v15a10 10 0 0 0 10 10"></path><g><path d="M154 90h102"></path></g><path d="M256 90a10 10 0 0 0 10 -10v-15a10 10 0 0 0 -10 -10"></path></g><path d="M266 55h20"></path></g><path d="M286 55h10"></path><g class="terminal"><path d="M296 55h0"></path><path d="M350 55h0"></path><rect x="296" y="44" width="54" height="22" rx="0" ry="0"></rect><text x="323" y="59">'}'</text></g></g><path d="M350 55h20"></path></g><path d="M 370 55 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>statement</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="262" height="430" viewBox="0 0 262 430"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M222 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h12"></path><path d="M190 31h12"></path><g class="non-terminal"><path d="M72 31h0"></path><path d="M190 31h0"></path><rect x="72" y="20" width="118" height="22" rx="8" ry="8"></rect><text x="131" y="35">constructor</text></g></g><path d="M202 31h20"></path><path d="M40 31a10 10 0 0 1 10 10v26a10 10 0 0 0 10 10"></path><g><path d="M60 77h32"></path><path d="M170 77h32"></path><g class="non-terminal"><path d="M92 77h0"></path><path d="M170 77h0"></path><rect x="92" y="66" width="78" height="22" rx="8" ry="8"></rect><text x="131" y="81">method</text></g></g><path d="M202 77a10 10 0 0 0 10 -10v-26a10 10 0 0 1 10 -10"></path><path d="M40 31a10 10 0 0 1 10 10v72a10 10 0 0 0 10 10"></path><g><path d="M60 123h40"></path><path d="M162 123h40"></path><g class="non-terminal"><path d="M100 123h0"></path><path d="M162 123h0"></path><rect x="100" y="112" width="62" height="22" rx="8" ry="8"></rect><text x="131" y="127">code</text></g></g><path d="M202 123a10 10 0 0 0 10 -10v-72a10 10 0 0 1 10 -10"></path><path d="M40 31a10 10 0 0 1 10 10v118a10 10 0 0 0 10 10"></path><g><path d="M60 169h0"></path><path d="M202 169h0"></path><g class="non-terminal"><path d="M60 169h0"></path><path d="M202 169h0"></path><rect x="60" y="158" width="142" height="22" rx="8" ry="8"></rect><text x="131" y="173">objectCreation</text></g></g><path d="M202 169a10 10 0 0 0 10 -10v-118a10 10 0 0 1 10 -10"></path><path d="M40 31a10 10 0 0 1 10 10v164a10 10 0 0 0 10 10"></path><g><path d="M60 215h16"></path><path d="M186 215h16"></path><g class="non-terminal"><path d="M76 215h0"></path><path d="M186 215h0"></path><rect x="76" y="204" width="110" height="22" rx="8" ry="8"></rect><text x="131" y="219">methodCall</text></g></g><path d="M202 215a10 10 0 0 0 10 -10v-164a10 10 0 0 1 10 -10"></path><path d="M40 31a10 10 0 0 1 10 10v210a10 10 0 0 0 10 10"></path><g><path d="M60 261h12"></path><path d="M190 261h12"></path><g class="non-terminal"><path d="M72 261h0"></path><path d="M190 261h0"></path><rect x="72" y="250" width="118" height="22" rx="8" ry="8"></rect><text x="131" y="265">diagramLink</text></g></g><path d="M202 261a10 10 0 0 0 10 -10v-210a10 10 0 0 1 10 -10"></path><path d="M40 31a10 10 0 0 1 10 10v256a10 10 0 0 0 10 10"></path><g><path d="M60 307h20"></path><path d="M182 307h20"></path><g class="non-terminal"><path d="M80 307h0"></path><path d="M182 307h0"></path><rect x="80" y="296" width="102" height="22" rx="8" ry="8"></rect><text x="131" y="311">aFragment</text></g></g><path d="M202 307a10 10 0 0 0 10 -10v-256a10 10 0 0 1 10 -10"></path><path d="M40 31a10 10 0 0 1 10 10v302a10 10 0 0 0 10 10"></path><g><path d="M60 353h40"></path><path d="M162 353h40"></path><g class="non-terminal"><path d="M100 353h0"></path><path d="M162 353h0"></path><rect x="100" y="342" width="62" height="22" rx="8" ry="8"></rect><text x="131" y="357">loop</text></g></g><path d="M202 353a10 10 0 0 0 10 -10v-302a10 10 0 0 1 10 -10"></path><path d="M40 31a10 10 0 0 1 10 10v348a10 10 0 0 0 10 10"></path><g><path d="M60 399h44"></path><path d="M158 399h44"></path><g class="non-terminal"><path d="M104 399h0"></path><path d="M158 399h0"></path><rect x="104" y="388" width="54" height="22" rx="8" ry="8"></rect><text x="131" y="403">alt</text></g></g><path d="M202 399a10 10 0 0 0 10 -10v-348a10 10 0 0 1 10 -10"></path></g><path d="M 222 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>objectCreation</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="718" height="86" viewBox="0 0 718 86"><g transform="translate(.5 .5)"><path d="M 20 45 v 20 m 0 -10 h 20.5"></path><g><path d="M40 55h0"></path><path d="M678 55h0"></path><path d="M40 55h20"></path><g><path d="M60 55h0"></path><path d="M658 55h0"></path><g class="terminal"><path d="M60 55h0"></path><path d="M154 55h0"></path><rect x="60" y="44" width="94" height="22" rx="0" ry="0"></rect><text x="107" y="59">'create'</text></g><path d="M154 55h10"></path><path d="M164 55h10"></path><g class="non-terminal"><path d="M174 55h0"></path><path d="M244 55h0"></path><rect x="174" y="44" width="70" height="22" rx="8" ry="8"></rect><text x="209" y="59">ident</text></g><path d="M244 55h10"></path><g><path d="M254 55h0"></path><path d="M396 55h0"></path><path d="M254 55a10 10 0 0 0 10 -10v-15a10 10 0 0 1 10 -10"></path><g><path d="M274 20h102"></path></g><path d="M376 20a10 10 0 0 1 10 10v15a10 10 0 0 0 10 10"></path><path d="M254 55h20"></path><g class="non-terminal"><path d="M274 55h0"></path><path d="M376 55h0"></path><rect x="274" y="44" width="102" height="22" rx="8" ry="8"></rect><text x="325" y="59">arguments</text></g><path d="M376 55h20"></path></g><g><path d="M396 55h0"></path><path d="M514 55h0"></path><path d="M396 55a10 10 0 0 0 10 -10v-15a10 10 0 0 1 10 -10"></path><g><path d="M416 20h78"></path></g><path d="M494 20a10 10 0 0 1 10 10v15a10 10 0 0 0 10 10"></path><path d="M396 55h20"></path><g class="non-terminal"><path d="M416 55h0"></path><path d="M494 55h0"></path><rect x="416" y="44" width="78" height="22" rx="8" ry="8"></rect><text x="455" y="59">result</text></g><path d="M494 55h20"></path></g><path d="M514 55h10"></path><g class="non-terminal"><path d="M524 55h0"></path><path d="M658 55h0"></path><rect x="524" y="44" width="134" height="22" rx="8" ry="8"></rect><text x="591" y="59">optStatements</text></g></g><path d="M658 55h20"></path></g><path d="M 678 55 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>methodCall</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="832" height="86" viewBox="0 0 832 86"><g transform="translate(.5 .5)"><path d="M 20 45 v 20 m 0 -10 h 20.5"></path><g><path d="M40 55h0"></path><path d="M792 55h0"></path><path d="M40 55h20"></path><g><path d="M60 55h0"></path><path d="M772 55h0"></path><g class="terminal"><path d="M60 55h0"></path><path d="M138 55h0"></path><rect x="60" y="44" width="78" height="22" rx="0" ry="0"></rect><text x="99" y="59">'call'</text></g><path d="M138 55h10"></path><path d="M148 55h10"></path><g class="non-terminal"><path d="M158 55h0"></path><path d="M228 55h0"></path><rect x="158" y="44" width="70" height="22" rx="8" ry="8"></rect><text x="193" y="59">ident</text></g><path d="M228 55h10"></path><path d="M238 55h10"></path><g class="non-terminal"><path d="M248 55h0"></path><path d="M358 55h0"></path><rect x="248" y="44" width="110" height="22" rx="8" ry="8"></rect><text x="303" y="59">methodName</text></g><path d="M358 55h10"></path><g><path d="M368 55h0"></path><path d="M510 55h0"></path><path d="M368 55a10 10 0 0 0 10 -10v-15a10 10 0 0 1 10 -10"></path><g><path d="M388 20h102"></path></g><path d="M490 20a10 10 0 0 1 10 10v15a10 10 0 0 0 10 10"></path><path d="M368 55h20"></path><g class="non-terminal"><path d="M388 55h0"></path><path d="M490 55h0"></path><rect x="388" y="44" width="102" height="22" rx="8" ry="8"></rect><text x="439" y="59">arguments</text></g><path d="M490 55h20"></path></g><g><path d="M510 55h0"></path><path d="M628 55h0"></path><path d="M510 55a10 10 0 0 0 10 -10v-15a10 10 0 0 1 10 -10"></path><g><path d="M530 20h78"></path></g><path d="M608 20a10 10 0 0 1 10 10v15a10 10 0 0 0 10 10"></path><path d="M510 55h20"></path><g class="non-terminal"><path d="M530 55h0"></path><path d="M608 55h0"></path><rect x="530" y="44" width="78" height="22" rx="8" ry="8"></rect><text x="569" y="59">result</text></g><path d="M608 55h20"></path></g><path d="M628 55h10"></path><g class="non-terminal"><path d="M638 55h0"></path><path d="M772 55h0"></path><rect x="638" y="44" width="134" height="22" rx="8" ry="8"></rect><text x="705" y="59">optStatements</text></g></g><path d="M772 55h20"></path></g><path d="M 792 55 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>methodName</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="198" height="108" viewBox="0 0 198 108"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M158 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h4"></path><path d="M134 31h4"></path><g class="non-terminal"><path d="M64 31h0"></path><path d="M134 31h0"></path><rect x="64" y="20" width="70" height="22" rx="8" ry="8"></rect><text x="99" y="35">ident</text></g></g><path d="M138 31h20"></path><path d="M40 31a10 10 0 0 1 10 10v26a10 10 0 0 0 10 10"></path><g><path d="M60 77h0"></path><path d="M138 77h0"></path><g class="non-terminal"><path d="M60 77h0"></path><path d="M138 77h0"></path><rect x="60" y="66" width="78" height="22" rx="8" ry="8"></rect><text x="99" y="81">string</text></g></g><path d="M138 77a10 10 0 0 0 10 -10v-26a10 10 0 0 1 10 -10"></path></g><path d="M 158 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>optStatements</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="294" height="108" viewBox="0 0 294 108"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M254 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M234 31h0"></path><g class="non-terminal"><path d="M60 31h0"></path><path d="M234 31h0"></path><rect x="60" y="20" width="174" height="22" rx="8" ry="8"></rect><text x="147" y="35">statementsInBraces</text></g></g><path d="M234 31h20"></path><path d="M40 31a10 10 0 0 1 10 10v26a10 10 0 0 0 10 10"></path><g><path d="M60 77h48"></path><path d="M186 77h48"></path><g class="non-terminal"><path d="M108 77h0"></path><path d="M186 77h0"></path><rect x="108" y="66" width="78" height="22" rx="8" ry="8"></rect><text x="147" y="81">optEnd</text></g></g><path d="M234 77a10 10 0 0 0 10 -10v-26a10 10 0 0 1 10 -10"></path></g><path d="M 254 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>arguments</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="716" height="134" viewBox="0 0 716 134"><g transform="translate(.5 .5)"><path d="M 20 69 v 20 m 0 -10 h 20.5"></path><g><path d="M40 79h0"></path><path d="M676 79h0"></path><path d="M40 79h20"></path><g><path d="M60 79h0"></path><path d="M656 79h0"></path><g class="terminal"><path d="M60 79h0"></path><path d="M114 79h0"></path><rect x="60" y="68" width="54" height="22" rx="0" ry="0"></rect><text x="87" y="83">'('</text></g><path d="M114 79h10"></path><g><path d="M124 79h0"></path><path d="M592 79h0"></path><path d="M124 79a10 10 0 0 0 10 -10v-39a10 10 0 0 1 10 -10"></path><g><path d="M144 20h428"></path></g><path d="M572 20a10 10 0 0 1 10 10v39a10 10 0 0 0 10 10"></path><path d="M124 79h20"></path><g><path d="M144 79h0"></path><path d="M572 79h0"></path><path d="M144 79h20"></path><g><path d="M164 79h0"></path><path d="M552 79h0"></path><g class="non-terminal"><path d="M164 79h0"></path><path d="M258 79h0"></path><rect x="164" y="68" width="94" height="22" rx="8" ry="8"></rect><text x="211" y="83">argument</text></g><path d="M258 79h10"></path><g><path d="M268 79h0"></path><path d="M552 79h0"></path><path d="M268 79a10 10 0 0 0 10 -10v-15a10 10 0 0 1 10 -10"></path><g><path d="M288 44h244"></path></g><path d="M532 44a10 10 0 0 1 10 10v15a10 10 0 0 0 10 10"></path><path d="M268 79h20"></path><g><path d="M288 79h0"></path><path d="M532 79h0"></path><path d="M288 79h10"></path><g><path d="M298 79h0"></path><path d="M522 79h0"></path><path d="M298 79h20"></path><g><path d="M318 79h0"></path><path d="M502 79h0"></path><g class="non-terminal"><path d="M318 79h0"></path><path d="M388 79h0"></path><rect x="318" y="68" width="70" height="22" rx="8" ry="8"></rect><text x="353" y="83">comma</text></g><path d="M388 79h10"></path><path d="M398 79h10"></path><g class="non-terminal"><path d="M408 79h0"></path><path d="M502 79h0"></path><rect x="408" y="68" width="94" height="22" rx="8" ry="8"></rect><text x="455" y="83">argument</text></g></g><path d="M502 79h20"></path></g><path d="M522 79h10"></path><path d="M298 79a10 10 0 0 0 -10 10v15a10 10 0 0 0 10 10"></path><g><path d="M298 114h224"></path></g><path d="M522 114a10 10 0 0 0 10 -10v-15a10 10 0 0 0 -10 -10"></path></g><path d="M532 79h20"></path></g></g><path d="M552 79h20"></path></g><path d="M572 79h20"></path></g><path d="M592 79h10"></path><g class="terminal"><path d="M602 79h0"></path><path d="M656 79h0"></path><rect x="602" y="68" width="54" height="22" rx="0" ry="0"></rect><text x="629" y="83">')'</text></g></g><path d="M656 79h20"></path></g><path d="M 676 79 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>argument</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="190" height="62" viewBox="0 0 190 62"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M150 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M130 31h0"></path><g class="non-terminal"><path d="M60 31h0"></path><path d="M130 31h0"></path><rect x="60" y="20" width="70" height="22" rx="8" ry="8"></rect><text x="95" y="35">ident</text></g></g><path d="M130 31h20"></path></g><path d="M 150 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>result</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="304" height="62" viewBox="0 0 304 62"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M264 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M244 31h0"></path><g class="terminal"><path d="M60 31h0"></path><path d="M154 31h0"></path><rect x="60" y="20" width="94" height="22" rx="0" ry="0"></rect><text x="107" y="35">'return'</text></g><path d="M154 31h10"></path><path d="M164 31h10"></path><g class="non-terminal"><path d="M174 31h0"></path><path d="M244 31h0"></path><rect x="174" y="20" width="70" height="22" rx="8" ry="8"></rect><text x="209" y="35">ident</text></g></g><path d="M244 31h20"></path></g><path d="M 264 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>constructor</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="538" height="62" viewBox="0 0 538 62"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M498 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M478 31h0"></path><g class="terminal"><path d="M60 31h0"></path><path d="M194 31h0"></path><rect x="60" y="20" width="134" height="22" rx="0" ry="0"></rect><text x="127" y="35">'constructor'</text></g><path d="M194 31h10"></path><path d="M204 31h10"></path><g class="non-terminal"><path d="M214 31h0"></path><path d="M284 31h0"></path><rect x="214" y="20" width="70" height="22" rx="8" ry="8"></rect><text x="249" y="35">ident</text></g><path d="M284 31h10"></path><path d="M294 31h10"></path><g class="non-terminal"><path d="M304 31h0"></path><path d="M478 31h0"></path><rect x="304" y="20" width="174" height="22" rx="8" ry="8"></rect><text x="391" y="35">statementsInBraces</text></g></g><path d="M478 31h20"></path></g><path d="M 498 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>method</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="514" height="62" viewBox="0 0 514 62"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M474 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M454 31h0"></path><g class="non-terminal"><path d="M60 31h0"></path><path d="M130 31h0"></path><rect x="60" y="20" width="70" height="22" rx="8" ry="8"></rect><text x="95" y="35">ident</text></g><path d="M130 31h10"></path><path d="M140 31h10"></path><g class="non-terminal"><path d="M150 31h0"></path><path d="M260 31h0"></path><rect x="150" y="20" width="110" height="22" rx="8" ry="8"></rect><text x="205" y="35">methodName</text></g><path d="M260 31h10"></path><path d="M270 31h10"></path><g class="non-terminal"><path d="M280 31h0"></path><path d="M454 31h0"></path><rect x="280" y="20" width="174" height="22" rx="8" ry="8"></rect><text x="367" y="35">statementsInBraces</text></g></g><path d="M454 31h20"></path></g><path d="M 474 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>code</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="482" height="62" viewBox="0 0 482 62"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M442 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M422 31h0"></path><g class="terminal"><path d="M60 31h0"></path><path d="M138 31h0"></path><rect x="60" y="20" width="78" height="22" rx="0" ry="0"></rect><text x="99" y="35">'code'</text></g><path d="M138 31h10"></path><path d="M148 31h10"></path><g class="non-terminal"><path d="M158 31h0"></path><path d="M228 31h0"></path><rect x="158" y="20" width="70" height="22" rx="8" ry="8"></rect><text x="193" y="35">ident</text></g><path d="M228 31h10"></path><path d="M238 31h10"></path><g class="non-terminal"><path d="M248 31h0"></path><path d="M422 31h0"></path><rect x="248" y="20" width="174" height="22" rx="8" ry="8"></rect><text x="335" y="35">statementsInBraces</text></g></g><path d="M422 31h20"></path></g><path d="M 442 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>aFragment</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="502" height="86" viewBox="0 0 502 86"><g transform="translate(.5 .5)"><path d="M 20 45 v 20 m 0 -10 h 20.5"></path><g><path d="M40 55h0"></path><path d="M462 55h0"></path><path d="M40 55h20"></path><g><path d="M60 55h0"></path><path d="M442 55h0"></path><g class="terminal"><path d="M60 55h0"></path><path d="M170 55h0"></path><rect x="60" y="44" width="110" height="22" rx="0" ry="0"></rect><text x="115" y="59">'fragment'</text></g><path d="M170 55h10"></path><g><path d="M180 55h0"></path><path d="M290 55h0"></path><path d="M180 55a10 10 0 0 0 10 -10v-15a10 10 0 0 1 10 -10"></path><g><path d="M200 20h70"></path></g><path d="M270 20a10 10 0 0 1 10 10v15a10 10 0 0 0 10 10"></path><path d="M180 55h20"></path><g class="non-terminal"><path d="M200 55h0"></path><path d="M270 55h0"></path><rect x="200" y="44" width="70" height="22" rx="8" ry="8"></rect><text x="235" y="59">ident</text></g><path d="M270 55h20"></path></g><path d="M290 55h10"></path><g class="non-terminal"><path d="M300 55h0"></path><path d="M442 55h0"></path><rect x="300" y="44" width="142" height="22" rx="8" ry="8"></rect><text x="371" y="59">fragmentCommon</text></g></g><path d="M442 55h20"></path></g><path d="M 462 55 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>loop</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="360" height="62" viewBox="0 0 360 62"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M320 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M300 31h0"></path><g class="terminal"><path d="M60 31h0"></path><path d="M138 31h0"></path><rect x="60" y="20" width="78" height="22" rx="0" ry="0"></rect><text x="99" y="35">'loop'</text></g><path d="M138 31h10"></path><path d="M148 31h10"></path><g class="non-terminal"><path d="M158 31h0"></path><path d="M300 31h0"></path><rect x="158" y="20" width="142" height="22" rx="8" ry="8"></rect><text x="229" y="35">fragmentCommon</text></g></g><path d="M300 31h20"></path></g><path d="M 320 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>alt</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="352" height="62" viewBox="0 0 352 62"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M312 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M292 31h0"></path><g class="terminal"><path d="M60 31h0"></path><path d="M130 31h0"></path><rect x="60" y="20" width="70" height="22" rx="0" ry="0"></rect><text x="95" y="35">'alt'</text></g><path d="M130 31h10"></path><path d="M140 31h10"></path><g class="non-terminal"><path d="M150 31h0"></path><path d="M292 31h0"></path><rect x="150" y="20" width="142" height="22" rx="8" ry="8"></rect><text x="221" y="35">fragmentCommon</text></g></g><path d="M292 31h20"></path></g><path d="M 312 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>fragmentCommon</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="382" height="86" viewBox="0 0 382 86"><g transform="translate(.5 .5)"><path d="M 20 45 v 20 m 0 -10 h 20.5"></path><g><path d="M40 55h0"></path><path d="M342 55h0"></path><path d="M40 55h20"></path><g><path d="M60 55h0"></path><path d="M322 55h0"></path><g><path d="M60 55h0"></path><path d="M178 55h0"></path><path d="M60 55a10 10 0 0 0 10 -10v-15a10 10 0 0 1 10 -10"></path><g><path d="M80 20h78"></path></g><path d="M158 20a10 10 0 0 1 10 10v15a10 10 0 0 0 10 10"></path><path d="M60 55h20"></path><g class="non-terminal"><path d="M80 55h0"></path><path d="M158 55h0"></path><rect x="80" y="44" width="78" height="22" rx="8" ry="8"></rect><text x="119" y="59">string</text></g><path d="M158 55h20"></path></g><path d="M178 55h10"></path><g class="non-terminal"><path d="M188 55h0"></path><path d="M322 55h0"></path><rect x="188" y="44" width="134" height="22" rx="8" ry="8"></rect><text x="255" y="59">fragmentItems</text></g></g><path d="M322 55h20"></path></g><path d="M 342 55 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>fragmentItems</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="414" height="86" viewBox="0 0 414 86"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M374 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M354 31h0"></path><g class="terminal"><path d="M60 31h0"></path><path d="M114 31h0"></path><rect x="60" y="20" width="54" height="22" rx="0" ry="0"></rect><text x="87" y="35">'{'</text></g><path d="M114 31h10"></path><path d="M124 31h10"></path><g><path d="M134 31h0"></path><path d="M280 31h0"></path><path d="M134 31h10"></path><g class="non-terminal"><path d="M144 31h0"></path><path d="M270 31h0"></path><rect x="144" y="20" width="126" height="22" rx="8" ry="8"></rect><text x="207" y="35">fragmentItem</text></g><path d="M270 31h10"></path><path d="M144 31a10 10 0 0 0 -10 10v15a10 10 0 0 0 10 10"></path><g><path d="M144 66h126"></path></g><path d="M270 66a10 10 0 0 0 10 -10v-15a10 10 0 0 0 -10 -10"></path></g><path d="M280 31h10"></path><path d="M290 31h10"></path><g class="terminal"><path d="M300 31h0"></path><path d="M354 31h0"></path><rect x="300" y="20" width="54" height="22" rx="0" ry="0"></rect><text x="327" y="35">'}'</text></g></g><path d="M354 31h20"></path></g><path d="M 374 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>fragmentItem</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="278" height="108" viewBox="0 0 278 108"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M238 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h28"></path><path d="M190 31h28"></path><g class="non-terminal"><path d="M88 31h0"></path><path d="M190 31h0"></path><rect x="88" y="20" width="102" height="22" rx="8" ry="8"></rect><text x="139" y="35">statement</text></g></g><path d="M218 31h20"></path><path d="M40 31a10 10 0 0 1 10 10v26a10 10 0 0 0 10 10"></path><g><path d="M60 77h0"></path><path d="M218 77h0"></path><g class="non-terminal"><path d="M60 77h0"></path><path d="M218 77h0"></path><rect x="60" y="66" width="158" height="22" rx="8" ry="8"></rect><text x="139" y="81">sectionDelimiter</text></g></g><path d="M218 77a10 10 0 0 0 10 -10v-26a10 10 0 0 1 10 -10"></path></g><path d="M 238 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>sectionDelimiter</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="350" height="86" viewBox="0 0 350 86"><g transform="translate(.5 .5)"><path d="M 20 45 v 20 m 0 -10 h 20.5"></path><g><path d="M40 55h0"></path><path d="M310 55h0"></path><path d="M40 55h20"></path><g><path d="M60 55h0"></path><path d="M290 55h0"></path><g class="terminal"><path d="M60 55h0"></path><path d="M162 55h0"></path><rect x="60" y="44" width="102" height="22" rx="0" ry="0"></rect><text x="111" y="59">'section'</text></g><path d="M162 55h10"></path><g><path d="M172 55h0"></path><path d="M290 55h0"></path><path d="M172 55a10 10 0 0 0 10 -10v-15a10 10 0 0 1 10 -10"></path><g><path d="M192 20h78"></path></g><path d="M270 20a10 10 0 0 1 10 10v15a10 10 0 0 0 10 10"></path><path d="M172 55h20"></path><g class="non-terminal"><path d="M192 55h0"></path><path d="M270 55h0"></path><rect x="192" y="44" width="78" height="22" rx="8" ry="8"></rect><text x="231" y="59">string</text></g><path d="M270 55h20"></path></g></g><path d="M290 55h20"></path></g><path d="M 310 55 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>diagramLink</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="638" height="62" viewBox="0 0 638 62"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M598 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M578 31h0"></path><g class="terminal"><path d="M60 31h0"></path><path d="M194 31h0"></path><rect x="60" y="20" width="134" height="22" rx="0" ry="0"></rect><text x="127" y="35">'diagramLink'</text></g><path d="M194 31h10"></path><path d="M204 31h10"></path><g class="non-terminal"><path d="M214 31h0"></path><path d="M292 31h0"></path><rect x="214" y="20" width="78" height="22" rx="8" ry="8"></rect><text x="253" y="35">string</text></g><path d="M292 31h10"></path><path d="M302 31h10"></path><g class="non-terminal"><path d="M312 31h0"></path><path d="M382 31h0"></path><rect x="312" y="20" width="70" height="22" rx="8" ry="8"></rect><text x="347" y="35">ident</text></g><path d="M382 31h10"></path><path d="M392 31h10"></path><g class="non-terminal"><path d="M402 31h0"></path><path d="M480 31h0"></path><rect x="402" y="20" width="78" height="22" rx="8" ry="8"></rect><text x="441" y="35">number</text></g><path d="M480 31h10"></path><path d="M490 31h10"></path><g class="non-terminal"><path d="M500 31h0"></path><path d="M578 31h0"></path><rect x="500" y="20" width="78" height="22" rx="8" ry="8"></rect><text x="539" y="35">optEnd</text></g></g><path d="M578 31h20"></path></g><path d="M 598 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>title</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="402" height="62" viewBox="0 0 402 62"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M362 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M342 31h0"></path><g class="terminal"><path d="M60 31h0"></path><path d="M146 31h0"></path><rect x="60" y="20" width="86" height="22" rx="0" ry="0"></rect><text x="103" y="35">'title'</text></g><path d="M146 31h10"></path><path d="M156 31h10"></path><g class="non-terminal"><path d="M166 31h0"></path><path d="M244 31h0"></path><rect x="166" y="20" width="78" height="22" rx="8" ry="8"></rect><text x="205" y="35">string</text></g><path d="M244 31h10"></path><path d="M254 31h10"></path><g class="non-terminal"><path d="M264 31h0"></path><path d="M342 31h0"></path><rect x="264" y="20" width="78" height="22" rx="8" ry="8"></rect><text x="303" y="35">optEnd</text></g></g><path d="M342 31h20"></path></g><path d="M 362 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>optEnd</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="264" height="62" viewBox="0 0 264 62"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M224 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M204 31h0"></path><g class="terminal"><path d="M60 31h0"></path><path d="M114 31h0"></path><rect x="60" y="20" width="54" height="22" rx="0" ry="0"></rect><text x="87" y="35">';'</text></g><path d="M114 31h10"></path><path d="M124 31h10"></path><g class="terminal"><path d="M134 31h0"></path><path d="M204 31h0"></path><rect x="134" y="20" width="70" height="22" rx="0" ry="0"></rect><text x="169" y="35">WHITE</text></g></g><path d="M204 31h20"></path></g><path d="M 224 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>ident</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="280" height="62" viewBox="0 0 280 62"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M240 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M220 31h0"></path><g class="terminal"><path d="M60 31h0"></path><path d="M130 31h0"></path><rect x="60" y="20" width="70" height="22" rx="0" ry="0"></rect><text x="95" y="35">IDENT</text></g><path d="M130 31h10"></path><path d="M140 31h10"></path><g class="terminal"><path d="M150 31h0"></path><path d="M220 31h0"></path><rect x="150" y="20" width="70" height="22" rx="0" ry="0"></rect><text x="185" y="35">WHITE</text></g></g><path d="M220 31h20"></path></g><path d="M 240 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>string</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="288" height="62" viewBox="0 0 288 62"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M248 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M228 31h0"></path><g class="terminal"><path d="M60 31h0"></path><path d="M138 31h0"></path><rect x="60" y="20" width="78" height="22" rx="0" ry="0"></rect><text x="99" y="35">STRING</text></g><path d="M138 31h10"></path><path d="M148 31h10"></path><g class="terminal"><path d="M158 31h0"></path><path d="M228 31h0"></path><rect x="158" y="20" width="70" height="22" rx="0" ry="0"></rect><text x="193" y="35">WHITE</text></g></g><path d="M228 31h20"></path></g><path d="M 248 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>comma</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="264" height="62" viewBox="0 0 264 62"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M224 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M204 31h0"></path><g class="terminal"><path d="M60 31h0"></path><path d="M114 31h0"></path><rect x="60" y="20" width="54" height="22" rx="0" ry="0"></rect><text x="87" y="35">','</text></g><path d="M114 31h10"></path><path d="M124 31h10"></path><g class="terminal"><path d="M134 31h0"></path><path d="M204 31h0"></path><rect x="134" y="20" width="70" height="22" rx="0" ry="0"></rect><text x="169" y="35">WHITE</text></g></g><path d="M204 31h20"></path></g><path d="M 224 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+    <h3>number</h3>
+    <svg xmlns="http://www.w3.org/2000/svg" class="railroad-diagram" width="288" height="62" viewBox="0 0 288 62"><g transform="translate(.5 .5)"><path d="M 20 21 v 20 m 0 -10 h 20.5"></path><g><path d="M40 31h0"></path><path d="M248 31h0"></path><path d="M40 31h20"></path><g><path d="M60 31h0"></path><path d="M228 31h0"></path><g class="terminal"><path d="M60 31h0"></path><path d="M138 31h0"></path><rect x="60" y="20" width="78" height="22" rx="0" ry="0"></rect><text x="99" y="35">NUMBER</text></g><path d="M138 31h10"></path><path d="M148 31h10"></path><g class="terminal"><path d="M158 31h0"></path><path d="M228 31h0"></path><rect x="158" y="20" width="70" height="22" rx="0" ry="0"></rect><text x="193" y="35">WHITE</text></g></g><path d="M228 31h20"></path></g><path d="M 248 31 h 20 m 0 -10 v 20"></path></g></svg>
+
+</div></body></html>
