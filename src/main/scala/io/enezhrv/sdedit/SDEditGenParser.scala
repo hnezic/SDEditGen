@@ -8,7 +8,7 @@ trait SDEditGenParser
                                         . map { case (tit, obj, st) => Program(tit, obj, st) } )
 
     def objects[_: P] : P[List[ObjectDecl]] = P( (key("objects") ~/ str("{") ~ objectDecl.rep(1) ~ str("}")).map(_.toList) )
-    def objectDecl[_: P] : P[ObjectDecl] = P( (ident ~ str(":").? ~ ident ~ flag.rep.map(_.toSet))
+    def objectDecl[_: P] : P[ObjectDecl] = P( (ident ~ colon.? ~ ident ~ flag.rep.map(_.toSet))
                                             . map { case (name, type_, flags) => ObjectDecl(name, type_, flags) } )
     def flag[_: P] : P[ObjectFlag.Value] = P( key("named").map(_ => ObjectFlag.named) | key("existing").map(_ => ObjectFlag.existing) )
 
@@ -52,15 +52,19 @@ trait SDEditGenParser
     def title[_: P] : P[Title]= P( (key("title") ~/ string ~ optEnd).map(t => Title(t)) )
 
     // Tokens
+    def comma[_: P] : P[Unit] = str(",")
+    def colon[_: P] : P[Unit] = str(":")
     def optEnd[_: P] : P[Unit] = P( (str(";") ~ white ).? )
+
     def ident[_: P] : P[String] = P( ( CharIn("a-zA-Z_").! ~ CharsWhileIn("a-zA-Z0-9_").rep.! )
         .map { case (first, rest) => first + rest }. filter( ! keywords.contains(_) ) ~ white )
     def string[_: P] : P[String] = P( "\"" ~/ CharsWhile(_ != '"').! ~ "\"" ~ white )
     def number[_: P] : P[Int] = P( CharIn("0-9").rep(1).!.map(_.toInt) ~ white )
+
     def key[_: P](s: String) : P[Unit] = P( s ~ white )
     def str[_: P](s: String) : P[Unit] = P( s ~ white )
     val keywords = Set( "objects", "named", "existing", "constructor", "method", "code", "create",
         "call", "diagramLink", "fragment", "loop", "alt", "section", "title" )
-    def comma[_: P] : P[Unit] = P("," ~ white)
+
     def white[_: P] : P[Unit] = P( CharIn(" \t\r\n").rep )
 }
