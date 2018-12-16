@@ -8,7 +8,7 @@ trait SDEditGenParser
                                         . map { case (tit, obj, st) => Program(tit, obj, st) } )
 
     def objects[_: P] : P[List[ObjectDecl]] = P( (key("objects") ~/ str("{") ~ objectDecl.rep(1) ~ str("}")).map(_.toList) )
-    def objectDecl[_: P] : P[ObjectDecl] = P( (ident ~ ident ~ flag.rep.map(_.toSet))
+    def objectDecl[_: P] : P[ObjectDecl] = P( (ident ~ str(":").? ~ ident ~ flag.rep.map(_.toSet))
                                             . map { case (name, type_, flags) => ObjectDecl(name, type_, flags) } )
     def flag[_: P] : P[ObjectFlag.Value] = P( key("named").map(_ => ObjectFlag.named) | key("existing").map(_ => ObjectFlag.existing) )
 
