@@ -9,7 +9,7 @@ objects
    ;
 
 objectDecl
-   : ident ident flag*
+   : ident colon? ident flag*
    ;
 
 flag
@@ -37,7 +37,7 @@ objectCreation
    ;
 
 methodCall
-   : 'call' ident methodName arguments? result? optStatements
+   : 'call' ident dot? methodName arguments? result? optStatements
    ;
 
 methodName
@@ -118,7 +118,7 @@ title
 // Tokens
 
 optEnd
-   : ';' WHITE
+   : (';' WHITE)?
    ;
 
 ident
@@ -129,12 +129,20 @@ string
    : STRING WHITE
    ;
 
+number
+   : NUMBER WHITE
+   ;
+
 comma
    : ',' WHITE
    ;
 
-number
-   : NUMBER WHITE
+dot
+   : '.' WHITE
+   ;
+
+colon
+   : ':' WHITE
    ;
 
 IDENT
