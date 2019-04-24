@@ -1,8 +1,8 @@
 package io.enezhrv.sdedit
 
-class Simple2 extends UnitTest
+class SimpleStd extends UnitTest
 {
-    test("Simple diagram 2 (simple create and call statements)") {
+    test("Simple diagram (simple create and call statements)") {
         val input =
             """
               | objects {
@@ -23,7 +23,7 @@ class Simple2 extends UnitTest
               |                 }
               |         }
               |
-              |     call manager manage(arg1, arg2)
+              |     call manager.manage(arg1, arg2)
               |         method manager.manage {
               |             loop {
               |                 call context.getItem
