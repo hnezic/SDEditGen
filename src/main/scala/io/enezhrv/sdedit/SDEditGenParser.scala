@@ -31,7 +31,7 @@ trait SDEditGenParser
     // Method, constructor, call
     def constructor[_: P] : P[Constructor] = P( (key("constructor") ~/ ident ~ statementsInBraces)
                                                 . map{ case (obj, st) => new Constructor(obj, st) } )
-    def method[_: P]: P[Method] = P( (key("method") ~/ ident ~ methodName ~ statementsInBraces)
+    def method[_: P]: P[Method] = P( (key("method") ~/ ident ~ dot.? ~ methodName ~ statementsInBraces)
                                         . map { case (obj, met, st) => new Method (obj, met, st) } )
     def code[_: P] : P[Code] = P( (key("code") ~/ ident ~ statementsInBraces)
                                     . map{ case (obj, st) => new Code(obj, st) } )

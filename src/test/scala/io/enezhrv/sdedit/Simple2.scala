@@ -1,22 +1,22 @@
 package io.enezhrv.sdedit
 
-class Simple extends UnitTest
+class Simple2 extends UnitTest
 {
-    test("Simple diagram (simple create and call statements)") {
+    test("Simple diagram 2 (simple create and call statements)") {
         val input =
             """
               | objects {
-              |     test AdapterTest named existing
-              |     adapter Adapter
-              |     manager Manager
-              |     context Context
+              |     test: AdapterTest named existing
+              |     adapter: Adapter
+              |     manager: Manager
+              |     context: Context
               | }
               |
               | code test {
               |     create adapter
               |
-              |     call adapter init
-              |         method adapter init {
+              |     call adapter.init
+              |         method adapter.init {
               |             create manager
               |                 constructor manager {
               |                     create context
@@ -24,9 +24,9 @@ class Simple extends UnitTest
               |         }
               |
               |     call manager manage(arg1, arg2)
-              |         method manager manage {
+              |         method manager.manage {
               |             loop {
-              |                 call context getItem
+              |                 call context.getItem
               |             }
               |         }
               | }

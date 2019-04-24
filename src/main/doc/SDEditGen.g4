@@ -68,7 +68,7 @@ constructor
    ;
 
 method
-   : ident methodName statementsInBraces
+   : 'method' ident dot? methodName statementsInBraces
    ;
 
 code
