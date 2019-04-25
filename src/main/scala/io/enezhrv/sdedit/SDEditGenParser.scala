@@ -14,7 +14,7 @@ trait SDEditGenParser
 
     def statements[_: P] : P[List[Statement]] = P( statement.rep.map(_.toList) )
     def statementsInBraces[_: P] : P[List[Statement]] = P( str("{") ~ statement.rep.map(_.toList) ~ str("}") )
-    def statement[_: P] : P[Statement] = P( constructor | method | code | objectCreation | methodCall | diagramLink | fragment | loop | alt )
+    def statement[_: P] : P[Statement] = P( constructor | method | objectActions | objectCreation | methodCall | diagramLink | fragment | loop | alt )
 
     // Method call, object creation
     def objectCreation[_: P] : P[ObjectCreation] = P( (key("create") ~/ ident ~ arguments.? ~ result.? ~ optStatements)
@@ -33,8 +33,8 @@ trait SDEditGenParser
                                                 . map{ case (obj, st) => new Constructor(obj, st) } )
     def method[_: P]: P[Method] = P( (key("method") ~/ ident ~ dot.? ~ methodName ~ statementsInBraces)
                                         . map { case (obj, met, st) => new Method (obj, met, st) } )
-    def code[_: P] : P[Code] = P( (key("code") ~/ ident ~ statementsInBraces)
-                                    . map{ case (obj, st) => new Code(obj, st) } )
+    def objectActions[_: P] : P[Object] = P( (key("object") ~/ ident ~ statementsInBraces)
+                                    . map{ case (obj, st) => new Object(obj, st) } )
 
     // Fragments
     def fragment[_: P] : P[Fragment] = P( (key("fragment") ~/ ident.? ~ fragmentCommon) . map { case (type_, common) => new Fragment(type_, common) } )
@@ -64,7 +64,7 @@ trait SDEditGenParser
 
     def key[_: P](s: String) : P[Unit] = P( s ~ white )
     def str[_: P](s: String) : P[Unit] = P( s ~ white )
-    val keywords = Set( "objects", "named", "existing", "constructor", "method", "code", "create",
+    val keywords = Set( "objects", "named", "existing", "constructor", "method", "object", "create",
         "call", "diagramLink", "fragment", "loop", "alt", "section", "title" )
 
     def white[_: P] : P[Unit] = P( CharIn(" \t\r\n").rep )

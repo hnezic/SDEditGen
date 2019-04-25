@@ -12,7 +12,7 @@ class SimpleStd extends UnitTest
               |     context: Context
               | }
               |
-              | code test {
+              | object test {
               |     create adapter
               |
               |     call adapter.init

@@ -103,7 +103,7 @@ abstract class CodeContainer(objectName: String, statements: List[Statement]) ex
 }
 class Constructor(objectName: String, statements: List[Statement]) extends CodeContainer(objectName, statements)
 class Method(objectName: String, methodName: String, statements: List[Statement]) extends CodeContainer(objectName, statements)
-class Code(objectName: String, statements: List[Statement]) extends CodeContainer(objectName, statements)
+class Object(objectName: String, statements: List[Statement]) extends CodeContainer(objectName, statements)
 
 // -------------------------------------------------------------------------------------------
 

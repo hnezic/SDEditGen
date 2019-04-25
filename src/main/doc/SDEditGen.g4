@@ -27,7 +27,7 @@ statementsInBraces
    ;
 
 statement
-   : constructor | method | code | objectCreation | methodCall | diagramLink | aFragment | loop | alt
+   : constructor | method | objectActions | objectCreation | methodCall | diagramLink | aFragment | loop | alt
    ;
 
 // Method call, object creation
@@ -71,8 +71,8 @@ method
    : 'method' ident dot? methodName statementsInBraces
    ;
 
-code
-   : 'code' ident statementsInBraces
+objectActions
+   : 'object' ident statementsInBraces
    ;
 
 // Fragments

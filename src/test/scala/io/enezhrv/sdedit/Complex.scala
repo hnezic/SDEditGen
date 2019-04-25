@@ -15,7 +15,7 @@ class Complex extends UnitTest
               |    protocol Protocol
               |}
               |
-              |code test {
+              |object test {
               |    create adapter;
               |
               |    call adapter init(configuration) {
