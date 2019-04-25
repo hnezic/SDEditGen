@@ -17,7 +17,7 @@ trait SDEditGenParser
     def statement[_: P] : P[Statement] = P( constructor | method | objectActions | objectCreation | methodCall | diagramLink | fragment | loop | alt )
 
     // Method call, object creation
-    def objectCreation[_: P] : P[ObjectCreation] = P( (key("create") ~/ ident ~ arguments.? ~ result.? ~ optStatements)
+    def objectCreation[_: P] : P[ObjectCreation] = P( (key("new") ~/ ident ~ arguments.? ~ result.? ~ optStatements)
                                                         . map { case (obj, args, res, st) => new ObjectCreation(obj, args, res, st) } )
     def methodCall[_: P]: P[MethodCall] = P( (key("call") ~/ ident ~ dot.? ~ methodName ~ arguments.? ~ result.? ~ optStatements)
                                                         . map { case (obj, met, args, res, st) => new MethodCall(obj, met, args, res, st) } )
@@ -64,7 +64,7 @@ trait SDEditGenParser
 
     def key[_: P](s: String) : P[Unit] = P( s ~ white )
     def str[_: P](s: String) : P[Unit] = P( s ~ white )
-    val keywords = Set( "objects", "named", "existing", "constructor", "method", "object", "create",
+    val keywords = Set( "objects", "named", "existing", "constructor", "method", "object", "new",
         "call", "diagramLink", "fragment", "loop", "alt", "section", "title" )
 
     def white[_: P] : P[Unit] = P( CharIn(" \t\r\n").rep )

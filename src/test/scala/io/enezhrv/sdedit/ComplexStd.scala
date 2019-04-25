@@ -16,17 +16,17 @@ class ComplexStd extends UnitTest
               |}
               |
               |object test {
-              |    create adapter;
+              |    new adapter;
               |
               |    call adapter.init(configuration) {
               |
-              |        create configurator(this, configuration) {
-              |            create confHelp(this);
+              |        new configurator(this, configuration) {
+              |            new confHelp(this);
               |        }
               |
-              |        create manager(configurator) {
+              |        new manager(configurator) {
               |
-              |            create protocolBuilder;
+              |            new protocolBuilder;
               |
               |            diagramLink "Create_Metadata.sd" 1;
               |
@@ -45,7 +45,7 @@ class ComplexStd extends UnitTest
               |
               |            call protocolBuilder.build {
               |
-              |                create protocol(this) {
+              |                new protocol(this) {
               |                    call protocol "Copy items from builder";
               |                }
               |            }

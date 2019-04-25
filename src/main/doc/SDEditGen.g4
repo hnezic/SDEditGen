@@ -33,7 +33,7 @@ statement
 // Method call, object creation
 
 objectCreation
-   : 'create' ident arguments? result? optStatements
+   : 'new' ident arguments? result? optStatements
    ;
 
 methodCall

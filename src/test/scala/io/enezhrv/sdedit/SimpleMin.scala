@@ -12,11 +12,11 @@ class SimpleMin extends UnitTest
           | }
           |
           | $initialEntity {
-          |     create adapter
+          |     new adapter
           |
           |     call adapter.init {
-          |         create manager {
-          |             create context
+          |         new manager {
+          |             new context
           |         }
           |     }
           |
