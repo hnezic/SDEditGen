@@ -24,6 +24,6 @@ class TitleTest extends UnitTest
               |
             """.stripLines
 
-        parseAssert (input, expected)
+        parseCompareResult (input, expected)
     }
 }

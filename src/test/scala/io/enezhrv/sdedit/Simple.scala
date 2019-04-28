@@ -49,6 +49,6 @@ class Simple extends UnitTest
               |    [/c]
             """.stripLines
 
-        parseAssert (input, expected)
+        parseCompareResult (input, expected)
     }
 }

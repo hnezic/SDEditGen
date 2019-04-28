@@ -88,6 +88,6 @@ class Complex extends UnitTest
               |                protocol:protocol.Copy items from builder
             """.stripLines
 
-        parseAssert (input, expected, true)
+        parseCompareResult (input, expected, true)
     }
 }

@@ -7,7 +7,7 @@ import org.scalatest.compatible.Assertion
 
 abstract class UnitTest extends FunSuite with SDEditGenParser
 {
-    def parseAssert (input: String, expectedResult: String, rtrimResult: Boolean = false): Assertion =
+    def parseCompareResult(input: String, expectedResult: String, rtrimResult: Boolean = false): Assertion =
     {
         val parseResult = parse(input, program(_))
 

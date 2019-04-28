@@ -47,16 +47,16 @@ class SimpleMin extends UnitTest
 
     test("Simple diagram (object test)")
     {
-        parseAssert (input("object test"), expected)
+        parseCompareResult (input("object test"), expected)
     }
 
     test("Simple diagram (method test testMethod)")
     {
-        parseAssert (input("method test testMethod"), expected)
+        parseCompareResult (input("method test testMethod"), expected)
     }
 
     test("Simple diagram (constructor test)")
     {
-        parseAssert (input("constructor test"), expected)
+        parseCompareResult (input("constructor test"), expected)
     }
 }
