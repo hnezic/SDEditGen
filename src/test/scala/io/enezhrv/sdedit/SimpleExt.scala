@@ -1,6 +1,6 @@
 package io.enezhrv.sdedit
 
-class Simple extends UnitTest
+class SimpleExt extends UnitTest
 {
     test("Simple diagram (simple new and call statements)") {
         val input =
