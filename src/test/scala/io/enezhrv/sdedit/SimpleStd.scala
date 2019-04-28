@@ -15,20 +15,17 @@ class SimpleStd extends UnitTest
               | object test {
               |     new adapter
               |
-              |     call adapter.init
-              |         method adapter.init {
-              |             new manager
-              |                 constructor manager {
-              |                     new context
-              |                 }
+              |     call adapter.init {
+              |         new manager {
+              |             new context
               |         }
+              |     }
               |
-              |     call manager.manage(arg1, arg2)
-              |         method manager.manage {
-              |             loop {
-              |                 call context.getItem
-              |             }
+              |     call manager.manage(arg1, arg2) {
+              |         loop {
+              |             call context.getItem
               |         }
+              |     }
               | }
             """.stripMargin
 
