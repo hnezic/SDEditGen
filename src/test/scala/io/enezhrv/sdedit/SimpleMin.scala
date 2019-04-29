@@ -5,7 +5,7 @@ class SimpleMin extends UnitTest
     def input(initialEntity: String) =
         s"""
           | objects {
-          |     test: AdapterTest named existing
+          |     test: AdapterTest | named existing
           |     adapter: Adapter
           |     manager: Manager
           |     context: Context

@@ -8,8 +8,9 @@ trait SDEditGenParser
                                         . map { case (tit, obj, st) => Program(tit, obj, st) } )
 
     def objects[_: P] : P[List[ObjectDecl]] = P( (key("objects") ~/ str("{") ~ objectDecl.rep(1) ~ str("}")).map(_.toList) )
-    def objectDecl[_: P] : P[ObjectDecl] = P( (ident ~ colon.? ~ ident ~ flag.rep.map(_.toMap))
-                                            . map { case (name, type_, flags) => ObjectDecl(name, type_, flags) } )
+    def objectDecl[_: P] : P[ObjectDecl] = P( (ident ~ colon.? ~ ident ~ flags.?)
+                                            . map { case (name, type_, optFlags) => ObjectDecl(name, type_, optFlags) } )
+    def flags[_: P] : P[Map[String, Flag]] = P( pipe ~ flag.rep.map(_.toMap) )
     def flag[_: P] : P[(String, Flag)] = P( key("named").map(_ => "named" -> Named(true)) | key("existing").map(_ => "existing" -> Existing(true)) )
 
     def statements[_: P] : P[List[Statement]] = P( statement.rep.map(_.toList) )
@@ -55,6 +56,7 @@ trait SDEditGenParser
     def comma[_: P] : P[Unit] = P( str(",") )
     def dot[_: P] : P[Unit] = P( str(".") )
     def colon[_: P] : P[Unit] = P( str(":") )
+    def pipe[_: P] : P[Unit] = P( str("|") )
     def optEnd[_: P] : P[Unit] = P( str(";").? )
 
     def ident[_: P] : P[String] = P( ( CharIn("a-zA-Z_").! ~ CharsWhileIn("a-zA-Z0-9_").rep.! )

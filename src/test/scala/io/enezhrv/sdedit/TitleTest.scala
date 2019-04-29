@@ -7,7 +7,7 @@ class TitleTest extends UnitTest
             """
               | title "Skills421 - BookingService"
               | objects {
-              |     test AdapterTest named existing
+              |     test AdapterTest | named existing
               |     adapter Adapter
               |     manager Manager
               |     context Context

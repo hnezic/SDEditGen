@@ -6,7 +6,7 @@ class WithoutStatements extends UnitTest
         val input =
             """
               | objects {
-              |     test AdapterTest named existing
+              |     test AdapterTest | named existing
               |     adapter Adapter
               |     manager:Manager
               |     context: Context

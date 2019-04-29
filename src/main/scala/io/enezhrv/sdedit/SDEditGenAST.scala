@@ -41,11 +41,11 @@ case class Existing(value: Boolean) extends Flag
     override def getPrefix: String = if (value) "" else "/"
 }
 
-case class ObjectDecl (name: String, objectType: String, flags: Map[String, Flag]) extends CodeGenerator
+case class ObjectDecl (name: String, objectType: String, flags: Option[Map[String, Flag]]) extends CodeGenerator
 {
     def generate (parentName: String) (implicit level: Int): String =
     {
-        val updatedFlags: List[Flag] = (ObjectDecl.defaultFlags ++ flags).values.toList
+        val updatedFlags: List[Flag] = (ObjectDecl.defaultFlags ++ flags.getOrElse(Map[String, Flag]())).values.toList
 
         val prefix = updatedFlags.map(_.getPrefix).mkString
         val suffix = updatedFlags.map(_.getSuffix).mkString

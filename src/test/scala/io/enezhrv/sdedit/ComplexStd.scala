@@ -6,7 +6,7 @@ class ComplexStd extends UnitTest
         val input =
             """
               |objects {
-              |    test: ProtocolAdapterTest existing
+              |    test: ProtocolAdapterTest | existing
               |    adapter: ProtocolAdapter
               |    configurator: ProtocolAdapterConfigurator
               |    confHelp: ConfigurationHelper
