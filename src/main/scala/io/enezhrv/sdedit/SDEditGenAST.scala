@@ -27,18 +27,18 @@ trait CodeGenerator
 
 sealed trait Flag
 {
-    def getPrefix = ""
-    def getSuffix = ""
+    def getPrefix: String = ""
+    def getSuffix: String = ""
 }
 
 case class Named(value: Boolean) extends Flag
 {
-    override def getSuffix = if (value) "" else "[a]"
+    override def getSuffix: String = if (value) "" else "[a]"
 }
 
 case class Existing(value: Boolean) extends Flag
 {
-    override def getPrefix = if (value) "" else "/"
+    override def getPrefix: String = if (value) "" else "/"
 }
 
 case class ObjectDecl (name: String, objectType: String, flags: Map[String, Flag]) extends CodeGenerator
