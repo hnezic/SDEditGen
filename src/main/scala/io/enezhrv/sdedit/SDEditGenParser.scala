@@ -10,7 +10,7 @@ trait SDEditGenParser
     def objects[_: P] : P[List[ObjectDecl]] = P( (key("objects") ~/ str("{") ~ objectDecl.rep(1) ~ str("}")).map(_.toList) )
     def objectDecl[_: P] : P[ObjectDecl] = P( (ident ~ colon.? ~ ident ~ flags.?)
                                             . map { case (name, type_, optFlags) => ObjectDecl(name, type_, optFlags) } )
-    def flags[_: P] : P[Map[String, Flag]] = P( pipe ~ flag.rep.map(_.toMap) )
+    def flags[_: P] : P[Map[String, Flag]] = P( pipe ~ flag.rep(1).map(_.toMap) )
     def flag[_: P] : P[(String, Flag)] = P( key("named").map(_ => "named" -> Named(true)) | key("existing").map(_ => "existing" -> Existing(true)) )
 
     def statements[_: P] : P[List[Statement]] = P( statement.rep.map(_.toList) )

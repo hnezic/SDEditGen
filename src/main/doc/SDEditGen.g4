@@ -9,7 +9,11 @@ objects
    ;
 
 objectDecl
-   : ident colon? ident flag*
+   : ident colon? ident flags?
+   ;
+
+flags
+   : pipe flag+
    ;
 
 flag
@@ -143,6 +147,10 @@ dot
 
 colon
    : ':' WHITE
+   ;
+
+pipe
+   : '|' WHITE
    ;
 
 IDENT
