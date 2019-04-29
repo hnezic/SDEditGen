@@ -46,10 +46,10 @@ case class ObjectDecl (name: String, objectType: String, flags: Map[String, Flag
     def generate (parentName: String) (implicit level: Int): String =
     {
         import ObjectDecl.defaultFlags
-        val values: List[Flag] = (defaultFlags ++ flags).values.toList
+        val updatedFlags: List[Flag] = (defaultFlags ++ flags).values.toList
 
-        val prefix = values.map(_.getPrefix).mkString
-        val suffix = values.map(_.getSuffix).mkString
+        val prefix = updatedFlags.map(_.getPrefix).mkString
+        val suffix = updatedFlags.map(_.getSuffix).mkString
 
         indent (s"$prefix$name:$objectType$suffix") (level + 1)
     }
