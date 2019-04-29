@@ -26,8 +26,10 @@ trait SDEditGenParser
     def optStatements[_: P]: P[Option[List[Statement]]] = P( statementsInBraces.map(Option(_)) | optEnd.map (_ => None) )
 
     def arguments[_: P] : P[List[Argument]] = P( str("(") ~ argument.rep(sep=comma./).map(_.toList) ~ str(")") )
-    def argument[_: P] : P[Argument] = P( ident . map(arg => Argument(arg)) )
-    def result[_: P] : P[Result] = P( key("return") ~ ident . map(r => Result(r)) )
+    def argument[_: P] : P[Argument] = P( expression . map(exp => Argument(exp)) )
+    def result[_: P] : P[Result] = P( key("return") ~ expression . map(exp => Result(exp)) )
+
+    def expression[_: P] : P[Expression] = P( (ident | string.map('"' + _ + '"') | number.map(_.toString)) . map(exp => Expression(exp)) )
 
     // Method, constructor, call
     def constructor[_: P] : P[Constructor] = P( (key("constructor") ~/ ident ~ statementsInBraces)
@@ -66,7 +68,7 @@ trait SDEditGenParser
 
     def key[_: P](s: String) : P[Unit] = P( s ~ white )
     def str[_: P](s: String) : P[Unit] = P( s ~ white )
-    val keywords = Set( "objects", "named", "existing", "constructor", "method", "object", "new",
+    val keywords: Set[String] = Set( "objects", "named", "existing", "constructor", "method", "object", "new",
         "call", "diagramLink", "fragment", "loop", "alt", "section", "title" )
 
     def white[_: P] : P[Unit] = P( CharIn(" \t\r\n").rep )

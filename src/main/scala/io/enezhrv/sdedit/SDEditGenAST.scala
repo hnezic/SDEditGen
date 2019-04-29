@@ -93,12 +93,17 @@ class ObjectCreation (objectName: String, arguments: Arguments, result: Option[R
 class MethodCall (objectName: String, methodName: String, arguments: Arguments, result: Option[Result], optStatements: Option[List[Statement]])
     extends Call(objectName, methodName, arguments, result, optStatements)
 
-case class Argument (arg: String)
+case class Argument (exp: Expression)
 {
-    override def toString: String = arg
+    override def toString: String = exp.toString
 }
 
-case class Result (value: String)
+case class Result (exp: Expression)
+{
+    override def toString: String = exp.toString
+}
+
+case class Expression (value: String)
 {
     override def toString: String = value
 }
