@@ -29,7 +29,7 @@ trait SDEditGenParser
     def argument[_: P] : P[Argument] = P( expression . map(exp => Argument(exp)) )
     def result[_: P] : P[Result] = P( key("return") ~ expression . map(exp => Result(exp)) )
 
-    def expression[_: P] : P[Expression] = P( (ident | string.map('"' + _ + '"') | number.map(_.toString)) . map(exp => Expression(exp)) )
+    def expression[_: P] : P[Expression] = P( (ident | backString | string.map('"' + _ + '"') | number.map(_.toString)) . map(exp => Expression(exp)) )
 
     // Method, constructor, call
     def constructor[_: P] : P[Constructor] = P( (key("constructor") ~/ ident ~ statementsInBraces)
@@ -64,6 +64,7 @@ trait SDEditGenParser
     def ident[_: P] : P[String] = P( ( CharIn("a-zA-Z_").! ~ CharsWhileIn("a-zA-Z0-9_").rep.! )
         .map { case (first, rest) => first + rest }. filter( ! keywords.contains(_) ) ~ white )
     def string[_: P] : P[String] = P( "\"" ~/ CharsWhile(_ != '"').! ~ "\"" ~ white )
+    def backString[_: P] : P[String] = P( "`" ~/ CharsWhile(_ != '`').! ~ "`" ~ white )
     def number[_: P] : P[Int] = P( CharIn("0-9").rep(1).!.map(_.toInt) ~ white )
 
     def key[_: P](s: String) : P[Unit] = P( s ~ white )
