@@ -25,21 +25,38 @@ trait CodeGenerator
 
 // OBJECTS
 
-object ObjectFlag extends Enumeration
+sealed trait Flag
 {
-    type ObjectFlag = Value
-    val named, existing = Value
+    def getPrefix = ""
+    def getSuffix = ""
 }
-import ObjectFlag._
 
-case class ObjectDecl (name: String, objectType: String, flags: Set[ObjectFlag]) extends CodeGenerator
+case class Named(value: Boolean) extends Flag
+{
+    override def getSuffix = if (value) "" else "[a]"
+}
+
+case class Existing(value: Boolean) extends Flag
+{
+    override def getPrefix = if (value) "" else "/"
+}
+
+case class ObjectDecl (name: String, objectType: String, flags: Map[String, Flag]) extends CodeGenerator
 {
     def generate (parentName: String) (implicit level: Int): String =
     {
-        val prefix = if (flags contains ObjectFlag.existing) "" else "/"
-        val suffix = if (flags contains ObjectFlag.named) "" else "[a]"
+        import ObjectDecl.defaultFlags
+        val values: List[Flag] = (defaultFlags ++ flags).values.toList
+
+        val prefix = values.map(_.getPrefix).mkString
+        val suffix = values.map(_.getSuffix).mkString
+
         indent (s"$prefix$name:$objectType$suffix") (level + 1)
     }
+}
+object ObjectDecl
+{
+    val defaultFlags: Map[String, Flag] = Map ("named" -> Named(false), "existing" -> Existing(false))
 }
 
 // -------------------------------------------------------------------------------------------
