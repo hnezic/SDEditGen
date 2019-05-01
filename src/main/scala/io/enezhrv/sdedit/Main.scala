@@ -7,43 +7,6 @@ object Main extends SDEditGenParser with PathUtils
 {
     def main(args: Array[String]): Unit =
     {
-        val input1 =
-            """
-              | objects {
-              | abc List named
-              | xyz Adapter
-              | whatever Test existing named
-              |}
-              |diagramLink "this is my link"  123
-              |diagramLink "another link" abc 4567 ;""".stripMargin
-
-        val input2 =
-            """diagramLink "this is my link"  123
-              |diagramLink "another link" abc 4567 ;
-            """.stripMargin
-
-        val input3 =
-            """
-              |title "Skills421 - BookingService"
-              |
-              |objects {
-              |	delegate Actor existing
-              |	bs BookingService existing named
-              |	b Booking existing named
-              |	sc ScheduleCourse existing named
-              |}
-              |
-              |code delegate {
-              |	call bs bookScheduledCourse (schedId,numPlaces) {
-              |		call b createBooking() {
-              |			call sc "[checkAvailability(schedId,numPlaces)='true']"
-              |			call sc allocatePlaces(schdedId,numPlaces)
-              |		}
-              |		call delegate "SUCCESS/FAILURE"
-              |	}
-              |}
-            """.stripMargin
-
         // Get arguments
         if (args.length != 2)
             throw new IllegalArgumentException ("Usage: <input path> <relative output folder>")
