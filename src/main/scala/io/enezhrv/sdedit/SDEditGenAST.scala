@@ -25,22 +25,6 @@ trait CodeGenerator
 
 // OBJECTS
 
-sealed trait Flag
-{
-    def getPrefix: String = ""
-    def getSuffix: String = ""
-}
-
-case class Named(value: Boolean) extends Flag
-{
-    override def getSuffix: String = if (value) "" else "[a]"
-}
-
-case class Existing(value: Boolean) extends Flag
-{
-    override def getPrefix: String = if (value) "" else "/"
-}
-
 case class ObjectDecl (name: String, objectType: String, flags: Option[Map[String, Flag]]) extends CodeGenerator
 {
     def generate (parentName: String) (implicit level: Int): String =
@@ -56,6 +40,24 @@ case class ObjectDecl (name: String, objectType: String, flags: Option[Map[Strin
 object ObjectDecl
 {
     val defaultFlags: Map[String, Flag] = Map ("named" -> Named(false), "existing" -> Existing(false))
+}
+
+// FLAGS
+
+sealed trait Flag
+{
+    def getPrefix: String = ""
+    def getSuffix: String = ""
+}
+
+case class Named(value: Boolean) extends Flag
+{
+    override def getSuffix: String = if (value) "" else "[a]"
+}
+
+case class Existing(value: Boolean) extends Flag
+{
+    override def getPrefix: String = if (value) "" else "/"
 }
 
 // -------------------------------------------------------------------------------------------
