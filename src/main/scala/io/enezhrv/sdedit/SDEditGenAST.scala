@@ -132,7 +132,7 @@ class Object(objectName: String, statements: List[Statement]) extends CodeContai
 
 // FRAGMENTS
 
-class Fragment(fragmentType: Option[String], common: FragmentCommon) extends Statement
+class Fragment(fragmentType: Option[String], common: FragmentBody) extends Statement
 {
     def generate (parentName: String) (implicit level: Int): String =
     {
@@ -152,10 +152,10 @@ class Fragment(fragmentType: Option[String], common: FragmentCommon) extends Sta
     }
 }
 
-class Loop(common: FragmentCommon) extends Fragment(Some("loop"), common)
-class Alt(common: FragmentCommon) extends Fragment(Some("alt"), common)
+class Loop(common: FragmentBody) extends Fragment(Some("loop"), common)
+class Alt(common: FragmentBody) extends Fragment(Some("alt"), common)
 
-case class FragmentCommon(text: Option[String], items: List[FragmentItem])
+case class FragmentBody(text: Option[String], items: List[FragmentItem])
 
 case class SectionDelimiter(text: Option[String]) extends FragmentItem
 {

@@ -40,11 +40,11 @@ trait SDEditGenParser
                                     . map{ case (obj, st) => new Object(obj, st) } )
 
     // Fragments
-    def fragment[_: P] : P[Fragment] = P( (key("fragment") ~/ ident.? ~ fragmentCommon) . map { case (type_, common) => new Fragment(type_, common) } )
-    def loop[_: P] : P[Loop] = P( key("loop") ~/ fragmentCommon . map(new Loop(_)) )
-    def alt[_: P] : P[Alt] = P( key("alt") ~/ fragmentCommon . map(new Alt(_)) )
+    def fragment[_: P] : P[Fragment] = P( (key("fragment") ~/ ident.? ~ fragmentBody) . map { case (type_, common) => new Fragment(type_, common) } )
+    def loop[_: P] : P[Loop] = P( key("loop") ~/ fragmentBody . map(new Loop(_)) )
+    def alt[_: P] : P[Alt] = P( key("alt") ~/ fragmentBody . map(new Alt(_)) )
 
-    def fragmentCommon[_: P] : P[FragmentCommon] = P( (string.? ~ fragmentItems) . map { case (text, items) => FragmentCommon(text, items) } )
+    def fragmentBody[_: P] : P[FragmentBody] = P( (string.? ~ fragmentItems) . map { case (text, items) => FragmentBody(text, items) } )
     def fragmentItems[_: P] : P[List[FragmentItem]] = P( str("{") ~ fragmentItem.rep(1).map(_.toList) ~ str("}") )
     def fragmentItem[_: P] : P[FragmentItem] = P( statement | sectionDelimiter )
     def sectionDelimiter[_: P] : P[FragmentItem] = P( key("section") ~ string.? . map(SectionDelimiter) )
