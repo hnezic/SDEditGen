@@ -4,10 +4,11 @@ case class Program(title: Option[Title], objects: List[ObjectDecl], statements: 
 {
     def generate: String =
     {
-        val titleList = title.map(_.generate("")(0)).toList
-        val objectsList = objects map (_.generate("")(0))
+        implicit val level = 0
+        val titleList = title.map(_.generate("")).toList
+        val objectsList = objects map (_.generate(""))
         val sepList = List("")
-        val statementsList = statements map (_.generate("")(0))
+        val statementsList = statements map (_.generate(""))
         (titleList ++ objectsList ++ sepList ++ statementsList) mkString lineSep
     }
 }
