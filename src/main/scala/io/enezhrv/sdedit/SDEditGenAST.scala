@@ -12,7 +12,7 @@ case class Program(title: Option[Title], objects: List[ObjectDecl], statements: 
     }
 }
 
-trait CodeGenerator
+trait ASTNode
 {
     def generate (parentName: String) (implicit level: Int): String
 
@@ -25,7 +25,7 @@ trait CodeGenerator
 
 // OBJECTS
 
-case class ObjectDecl (name: String, objectType: String, flags: Option[Map[String, Flag]]) extends CodeGenerator
+case class ObjectDecl (name: String, objectType: String, flags: Option[Map[String, Flag]]) extends ASTNode
 {
     def generate (parentName: String) (implicit level: Int): String =
     {
@@ -64,7 +64,7 @@ case class Existing(value: Boolean) extends Flag
 
 // STATEMENTS
 
-sealed trait Statement extends CodeGenerator
+sealed trait Statement extends ASTNode
 
 // -------------------------------------------------------------------------------------------
 
@@ -155,7 +155,7 @@ class Alt(body: FragmentBody) extends Fragment(Some("alt"), body)
 
 case class FragmentBody(text: Option[String], items: List[FragmentItem])
 
-sealed trait FragmentItem extends CodeGenerator
+sealed trait FragmentItem extends ASTNode
 
 case class StatementFragmentItem(statement: Statement) extends FragmentItem
 {
