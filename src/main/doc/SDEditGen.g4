@@ -58,11 +58,15 @@ arguments
    ;
 
 argument
-   : ident
+   : expression
    ;
 
 result
-   : 'return' ident
+   : 'return' expression
+   ;
+
+expression
+   : ident | number | string | backString
    ;
 
 // Method, constructor, call
@@ -82,18 +86,18 @@ objectActions
 // Fragments
 
 aFragment
-   : 'fragment' ident? fragmentCommon
+   : 'fragment' ident? fragmentBody
    ;
 
 loop
-   : 'loop' fragmentCommon
+   : 'loop' fragmentBody
    ;
 
 alt
-   : 'alt' fragmentCommon
+   : 'alt' fragmentBody
    ;
 
-fragmentCommon
+fragmentBody
    : string? fragmentItems
    ;
 
@@ -133,6 +137,10 @@ string
    : STRING WHITE
    ;
 
+backString
+   : BACKSTRING WHITE
+   ;
+
 number
    : NUMBER WHITE
    ;
@@ -159,6 +167,10 @@ IDENT
 
 STRING
    : '"' ( ~ ["] )* '"'
+   ;
+
+BACKSTRING
+   : '`' ( ~ [`] )* '`'
    ;
 
 NUMBER
