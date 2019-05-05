@@ -64,9 +64,7 @@ case class Existing(value: Boolean) extends Flag
 
 // STATEMENTS
 
-sealed trait FragmentItem extends CodeGenerator
-
-sealed trait Statement extends FragmentItem
+sealed trait Statement extends CodeGenerator
 
 // -------------------------------------------------------------------------------------------
 
@@ -156,6 +154,16 @@ class Loop(common: FragmentBody) extends Fragment(Some("loop"), common)
 class Alt(common: FragmentBody) extends Fragment(Some("alt"), common)
 
 case class FragmentBody(text: Option[String], items: List[FragmentItem])
+
+sealed trait FragmentItem extends CodeGenerator
+
+case class StatementFragmentItem(statement: Statement) extends FragmentItem
+{
+    def generate (parentName: String) (implicit level: Int): String =
+    {
+        statement.generate(parentName)
+    }
+}
 
 case class SectionDelimiter(text: Option[String]) extends FragmentItem
 {

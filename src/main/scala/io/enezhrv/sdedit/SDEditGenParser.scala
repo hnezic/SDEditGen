@@ -46,7 +46,7 @@ trait SDEditGenParser
 
     def fragmentBody[_: P] : P[FragmentBody] = P( (string.? ~ fragmentItems) . map { case (text, items) => FragmentBody(text, items) } )
     def fragmentItems[_: P] : P[List[FragmentItem]] = P( str("{") ~ fragmentItem.rep(1).map(_.toList) ~ str("}") )
-    def fragmentItem[_: P] : P[FragmentItem] = P( statement | sectionDelimiter )
+    def fragmentItem[_: P] : P[FragmentItem] = P( statement . map(StatementFragmentItem(_)) | sectionDelimiter )
     def sectionDelimiter[_: P] : P[FragmentItem] = P( key("section") ~ string.? . map(SectionDelimiter) )
 
     // Notes, comments
