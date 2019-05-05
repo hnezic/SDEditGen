@@ -130,11 +130,11 @@ class Object(objectName: String, statements: List[Statement]) extends CodeContai
 
 // FRAGMENTS
 
-class Fragment(fragmentType: Option[String], common: FragmentBody) extends Statement
+class Fragment(fragmentType: Option[String], body: FragmentBody) extends Statement
 {
     def generate (parentName: String) (implicit level: Int): String =
     {
-        val start = (fragmentType, common.text) match {
+        val start = (fragmentType, body.text) match {
             case (Some(type_), Some(text)) => s"[c:$type_ $text]"
             case (Some(type_), None) => s"[c:$type_]"
             case (None, Some(text)) => s"[c:$text]"
@@ -143,15 +143,15 @@ class Fragment(fragmentType: Option[String], common: FragmentBody) extends State
         val startList = List(indent(start))
         val endList = List(indent("[/c]"))
 
-        val middleList = common.items map (_.generate(parentName)(level + 1))
+        val middleList = body.items map (_.generate(parentName)(level + 1))
 
         val list = startList ++ middleList ++ endList
         list mkString lineSep
     }
 }
 
-class Loop(common: FragmentBody) extends Fragment(Some("loop"), common)
-class Alt(common: FragmentBody) extends Fragment(Some("alt"), common)
+class Loop(body: FragmentBody) extends Fragment(Some("loop"), body)
+class Alt(body: FragmentBody) extends Fragment(Some("alt"), body)
 
 case class FragmentBody(text: Option[String], items: List[FragmentItem])
 
