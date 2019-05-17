@@ -3,7 +3,7 @@ package io.enezhrv.sdedit
 import cask.model.Response
 import fastparse._
 
-object SDEditGenServer extends cask.MainRoutes with SDEditGenParser
+object Routes extends cask.Routes with SDEditGenParser
 {
     @cask.post("/generate")
     def generate(request: cask.Request) =
@@ -24,3 +24,5 @@ object SDEditGenServer extends cask.MainRoutes with SDEditGenParser
 
     initialize()
 }
+
+object SDEditGenServer extends cask.Main(Routes)
