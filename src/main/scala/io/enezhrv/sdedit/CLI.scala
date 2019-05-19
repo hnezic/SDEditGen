@@ -3,7 +3,7 @@ package io.enezhrv.sdedit
 import ammonite.ops.{Path, read, write}
 import fastparse._
 
-object SDEditGenCLI extends SDEditGenParser with PathUtils
+object CLI extends SDEditGenParser with PathUtils
 {
     def main(args: Array[String]): Unit =
     {

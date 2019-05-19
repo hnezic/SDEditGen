@@ -25,4 +25,4 @@ object Routes extends cask.Routes with SDEditGenParser
     initialize()
 }
 
-object SDEditGenServer extends cask.Main(Routes)
+object Server extends cask.Main(Routes)
