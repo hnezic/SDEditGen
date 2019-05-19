@@ -1,4 +1,4 @@
-package io.enezhrv.sdedit
+package sdeditgen
 
 case class Program(title: Option[Title], objects: List[ObjectDecl], statements: List[Statement])
 {

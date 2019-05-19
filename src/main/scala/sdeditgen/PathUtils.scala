@@ -1,4 +1,4 @@
-package io.enezhrv.sdedit
+package sdeditgen
 
 import org.apache.commons.io.FilenameUtils
 import java.nio.file.Paths

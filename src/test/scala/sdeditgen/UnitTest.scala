@@ -1,4 +1,4 @@
-package io.enezhrv.sdedit
+package sdeditgen
 
 import fastparse._
 

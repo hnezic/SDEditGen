@@ -1,4 +1,4 @@
-package io.enezhrv.sdedit
+package sdeditgen
 
 class SimpleMin extends UnitTest
 {

@@ -1,4 +1,4 @@
-package io.enezhrv.sdedit
+package sdeditgen
 
 import cask.model.Response
 import fastparse._

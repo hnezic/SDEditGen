@@ -1,31 +1,34 @@
-package io.enezhrv.sdedit
+package sdeditgen
 
-class SimpleStd extends UnitTest
+class SimpleExt extends UnitTest
 {
     test("Simple diagram (simple new and call statements)") {
         val input =
             """
               | objects {
-              |     test: AdapterTest | named existing
-              |     adapter: Adapter
-              |     manager: Manager
-              |     context: Context
+              |     test AdapterTest | named existing
+              |     adapter Adapter
+              |     manager Manager
+              |     context Context
               | }
               |
               | object test {
               |     new adapter
               |
-              |     call adapter.init {
-              |         new manager {
-              |             new context
+              |     call adapter init
+              |         method adapter init {
+              |             new manager
+              |                 constructor manager {
+              |                     new context
+              |                 }
               |         }
-              |     }
               |
-              |     call manager.manage(arg1, arg2) {
-              |         loop {
-              |             call context.getItem
+              |     call manager manage(arg1, arg2)
+              |         method manager manage {
+              |             loop {
+              |                 call context getItem
+              |             }
               |         }
-              |     }
               | }
             """.stripMargin
 

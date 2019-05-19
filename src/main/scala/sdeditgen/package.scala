@@ -1,6 +1,4 @@
-package io.enezhrv
-
-package object sdedit
+package object sdeditgen
 {
     type Arguments = Option[List[Argument]]
 

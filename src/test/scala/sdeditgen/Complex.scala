@@ -1,4 +1,4 @@
-package io.enezhrv.sdedit
+package sdeditgen
 
 class Complex extends UnitTest
 {

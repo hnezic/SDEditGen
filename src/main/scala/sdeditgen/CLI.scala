@@ -1,4 +1,4 @@
-package io.enezhrv.sdedit
+package sdeditgen
 
 import ammonite.ops.{Path, read, write}
 import fastparse._
