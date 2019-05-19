@@ -8,11 +8,15 @@ trait PathUtils
 {
     def getPaths (sourcePathStr: String, relTargetFolder: String, sourceExt: String, targetExt: String) : (Path, Path) =
     {
+        // sourcePathStr can be absolute or relative path
+        // Convert it to absolute path
+        val absSourcePathStr = Paths.get(sourcePathStr).toAbsolutePath.toString
+
         // Check file extension
-        val prefix = FilenameUtils.getPrefix(sourcePathStr)
-        val inFolder = FilenameUtils.getPath(sourcePathStr)
-        val baseName = FilenameUtils.getBaseName(sourcePathStr)
-        val extension = FilenameUtils.getExtension(sourcePathStr)
+        val prefix = FilenameUtils.getPrefix(absSourcePathStr)
+        val inFolder = FilenameUtils.getPath(absSourcePathStr)
+        val baseName = FilenameUtils.getBaseName(absSourcePathStr)
+        val extension = FilenameUtils.getExtension(absSourcePathStr)
 
         if (! (extension equalsIgnoreCase sourceExt))
             throw new IllegalArgumentException (s"Input file must have '$sourceExt' extension!")
@@ -20,6 +24,6 @@ trait PathUtils
         // Set output path
         val targetName = baseName + "." + targetExt
         val targetPathStr = Paths.get(prefix, inFolder, relTargetFolder, targetName).toString
-        (Path(sourcePathStr), Path(targetPathStr))
+        (Path(absSourcePathStr), Path(targetPathStr))
     }
 }
