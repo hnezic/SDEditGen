@@ -1,29 +1,36 @@
 package sdeditgen
 
-import org.apache.commons.io.FilenameUtils
-import java.nio.file.Paths
+import better.files.File
 import ammonite.ops.Path
 
 trait PathUtils
 {
-    def getPaths (sourcePathStr: String, relTargetFolder: String, sourceExt: String, targetExt: String) : (Path, Path) =
+    def getPaths (sourceFileStr: String, targetFolderStr: String, sourceExt: String, targetExt: String) : (Path, Path) =
     {
-        // sourcePathStr can be absolute or relative path
-        // Convert it to absolute path
-        val absSourcePathStr = Paths.get(sourcePathStr).toAbsolutePath.toString
+        // First argument
+        val absSourceFilePath = File(sourceFileStr)
 
-        // Check file extension
-        val prefix = FilenameUtils.getPrefix(absSourcePathStr)
-        val inFolder = FilenameUtils.getPath(absSourcePathStr)
-        val baseName = FilenameUtils.getBaseName(absSourcePathStr)
-        val extension = FilenameUtils.getExtension(absSourcePathStr)
+        // Check if first argument is a file
+        if (! absSourceFilePath.isRegularFile)
+            throw new IllegalArgumentException ("First argument is not a file!")
 
-        if (! (extension equalsIgnoreCase sourceExt))
+        // Extract components
+        val parent: File = absSourceFilePath.parent
+        val nameWithoutExtension: String = absSourceFilePath.nameWithoutExtension
+        val extension: Option[String] = absSourceFilePath.extension
+
+        // Check if extension is correct
+        if (! extension.exists(_ equalsIgnoreCase sourceExt) )
             throw new IllegalArgumentException (s"Input file must have '$sourceExt' extension!")
 
-        // Set output path
-        val targetName = baseName + "." + targetExt
-        val targetPathStr = Paths.get(prefix, inFolder, relTargetFolder, targetName).toString
-        (Path(absSourcePathStr), Path(targetPathStr))
+        val absTargetFolder: File = parent / targetFolderStr
+
+        // Check if absolute target folder is a folder
+        if (! absTargetFolder.isDirectory)
+            throw new IllegalArgumentException ("Second argument is not a folder!")
+
+        val targetFile: File = absTargetFolder / (nameWithoutExtension + targetExt)
+
+        (Path(absSourceFilePath.pathAsString), Path(targetFile.pathAsString))
     }
 }

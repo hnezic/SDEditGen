@@ -9,9 +9,9 @@ object CLI extends SDEditGenParser with PathUtils
     {
         // Get arguments
         if (args.length != 2)
-            throw new IllegalArgumentException ("Usage: <input path> <relative output folder>")
+            throw new IllegalArgumentException ("Usage: <input file> <output folder>")
 
-        val (sourcePath, targetPath) = getPaths (args(0), args(1), "sdgen", "sd")
+        val (sourcePath, targetPath) = getPaths (args(0), args(1), ".sdgen", ".sd")
         val input = read! sourcePath
 
         val parseResult = parse(input, program(_))
