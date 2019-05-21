@@ -294,10 +294,12 @@ NOTE: The *object creation* statement implicitly provides the *context* (the
 
 Finally we are ready to show the complete example:
 
+ifndef::env-github[]
 [cols=2*,separator=¦,frame=none,grid=none]
 |===
 
 a¦
+endif::[]
 [source,scala]
 ----
 objects { <1>
@@ -325,9 +327,13 @@ object test {
 <2> The words _named_ and _existing_ are *flags* describing object attributes.
 They corresponding to _sdedit_ flags.
 
+ifndef::env-github[]
 a¦
+endif::[]
+ifndef::env-github[]
 image::simple.png[SimpleDiagram,align="right",width=900]
 |===
+endif::[]
 
 === Return clauses
 
