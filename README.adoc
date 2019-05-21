@@ -14,7 +14,7 @@ ifdef::env-github[]
 :caution-caption: :fire:
 :warning-caption: :warning:
 endif::[]
-:imagesdir: images
+:imagesdir: https://github.com/hnezic/SDEditGen/tree/master/images
 :qsde: http://sdedit.sourceforge.net[Quick Sequence Diagram Editor]
 :railroadDiagrams: link:syntax/index.html[railroad diagrams]
 :rrdTool: https://github.com/bkiers/rrd-antlr4[RRD for ANTLR4]
