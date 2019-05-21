@@ -1,0 +1,521 @@
+=  SDEditGen
+Hrvoje Nezic
+:nofooter:
+:source-highlighter: prettify
+:icons: font
+ifndef::env-github[]
+:toc: left
+:toclevels: 4
+endif::[]
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+:imagesdir: images
+:qsde: http://sdedit.sourceforge.net[Quick Sequence Diagram Editor]
+:railroadDiagrams: link:syntax/index.html[railroad diagrams]
+:rrdTool: https://github.com/bkiers/rrd-antlr4[RRD for ANTLR4]
+
+//== Introduction
+
+_SDEditGen_ is a preprocessor tool for __Quick Sequence Diagram Editor__,
+better known as __sdedit__.
+_QSDE / sdedit_ is an excellent open source _text to UML_ tool, but its
+syntax is not
+so nice: it is often unintutitive, cryptic, and hard to remember.
+Also, like syntax of many sequence diagram tools, _QSDE's_ syntax is
+__unstructured__. It is easy to create and read a _Hello world (Bob -> Alice)_
+example, but it is much harder to write and read complex real-world diagrams.
+_SDEditGen_ aims to provide a structured, nicer, easier and more
+intuitive syntax for __QSDE / sdedit__.
+
+== QSDE / sdedit: good parts
+
+=== Nice desktop GUI application
+
+_Quick Sequence Diagram Editor_ is
+a GUI application, with the open diagrams tree view on the left,
+the text editor on the bottom right and the real-time diagram preview pane
+on the top right:
+
+image::breadthFirst.png[BreadthFirstSearch,align="left"]
+
+=== Plenty of features
+
+QSDE / sddit offers some features which are not very often found
+in sequence diagram tools, like _real time diagram server_ and __mutithreading
+support__, as well as not so exotic but nice features like 
+__automatic redrawing__.
+
+=== Links to other diagrams
+
+In my view this is the *most important* feature for real-world complex
+diagrams! For toy examples it is not needed, of course.
+
+image::links.PNG[Links,align="left",float="right"]
+
+The diagram to the right includes the links to diagrams _Create_Matadata.sd_
+and _Create_leaf.sd_. When the user *clicks* on a _diagram link_ the
+application will *replace* the current diagram with the clicked one,
+and also display the newly opened diagram name in the tree view.
+
+Why is this feature so important? The main reason why we need UML diagrams
+at all is software **complexity**. Therefore the diagrams worth to
+be drawn are also complex, and this means they tend to become **big**
+pretty soon.
+In my view a *single* diagram *should not* become too big.
+Perhaps a meaningful limit for a single diagram is that it horizontally fits
+a screen width in the full-screen mode and that vertically it is not much
+bigger than what fits in the full screen. If we want to follow this tip
+the only solution is to break a potentially big diagram into smaller
+interlinked diagrams.
+
+There are many _text to UML_ tools but it is questionable whether any
+open source or inexpensive tool besides _QSDE / sdedit_ includes
+a similar functionality.
+
+== What's wrong with sdedit
+
+=== Unstructured syntax
+
+An important use case for sequence diagrams is when we need to *understand*
+an unfamiliar, complex and undocumented source code.
+
+The source code written in modern programming languages is **structured**:
+individual declarations and instructions
+reside in *classes* and **methods**, they are not just floating around.
+
+On the other hand, the code in _QSDE / sdedit_ and many other _text to UML_
+tools is **unstructured**: these tools don't provide the means to reflect
+the structure present in the source code.
+
+The basic syntax for sending messages in _QSDE / sdedit_ is following:
+
+[source,java]
+----
+<caller>:<callee>.message
+----
+
+These instructions are by far the most common ones, so our program is mostly
+just a sequence of such instructions.
+
+=== Do repeat yourself
+
+Object-oriented programming languages don't force us to specify the current
+object when we call methods of other objects. Unlike that, when we are writing
+_QSDE / sdedit_ code we must specify the current object each time. For example:
+
+[cols=2*,separator=¦,frame=none,grid=none]
+|===
+
+a¦
+[source,java]
+----
+manager:protocolBuilder.new
+*1 manager
+	link:Create_Metadata.sd
+*1
+manager:protocolBuilder.add(Metadata)
+*2 manager
+	link:Create_Leaf.sd
+*2
+manager:protocolBuilder.add(Leaf)
+----
+
+a¦
+image::diagramLinks.png[DiagramLinks,align="left"]
+|===
+
+This affects readability badly.
+
+=== Cryptic syntax
+
+Let's illustrate the problematic syntax on just one example. 
+
+In the following line it looks that the source object _bfs_ assigns the variable 
+__adjList__, but actually this specifies that
+the target object's method _getAdjacentNodes_ *returns* __adjList__, 
+which is something quite different:
+
+[source,]
+----
+bfs:adjList=node.getAdjacentNodes()
+----
+
+== SDEditGen: structured syntax for sdedit
+
+=== Object creation & method calls
+
+The most important operations supported by SDEditGen are object creation
+and method calling.
+
+*QSDE / sdedit* models both operations as message passing:
+
+[source,scala]
+----
+sourceObject:targetObject.new(arguments)
+sourceObject:targetObject.method(arguments)
+----
+
+The **SDEditGen**’s basic idea is to avoid specifying the source object in
+every object creation and method call: the source object should be
+determined implicitly. The SDEditGen's syntax for these operations is
+simply:
+
+[source,scala]
+----
+new targetObject(arguments)
+call targetObject.method(arguments)
+----
+
+How can we achieve the source object to be implicitly known? There are
+several ways, but let’s show the simplest way first.
+
+==== Object as context
+
+Let’s say the object _test_ creates the object _adapter_ and we don’t
+care in which particular method this is happening.
+We can specify it like this:
+
+[cols=2*,separator=¦,frame=none,grid=none]
+|===
+
+a¦
+[source,scala]
+----
+object test {
+	new adapter
+}
+----
+
+a¦
+image::newAdapter.png[NewAdapter,align="left"]
+|===
+
+NOTE: The *object* statement implicitly provides the *context* (the
+*source* object) for the enclosed operations.
+
+If the object _test_ calls a method on the created object, we also don’t
+have to specify the source object because it is known from the context:
+
+
+[cols=2*,separator=¦,frame=none,grid=none]
+|===
+
+a¦
+[source,scala]
+----
+object test { <1>
+	new adapter
+	call adapter.init
+}
+----
+<1> The object _test_ is the source object for both enclosed operations.
+
+a¦
+image::newInit.png[NewInit,align="left"]
+|===
+
+==== Method call as context
+
+So far so good, but how can we specify the context if __adapter__’s _init_
+method creates another object?
+
+We can do it easily because __adapter__’s _init_ method call itself can
+serve as a context:
+
+[cols=2*,separator=¦,frame=none,grid=none]
+|===
+
+a¦
+[source,scala]
+----
+object test { <1>
+	new adapter
+	call adapter.init { <2>
+		new manager
+	}
+}
+----
+<1> The object _test_ is the source object for both enclosed operations
+(__new__ and __call__).
+<2> The object _adapter_ is the source object for the enclosed operation
+(__new__).
+
+a¦
+image::newInitManager.png[NewInitManager,align="left"]
+|===
+
+NOTE: The *method call* statement implicitly provides the *context* (the
+*source* object) for the enclosed operations.
+
+==== Object creation as context
+
+What if the __manager__’s constructor creates yet another object?
+
+You guess it:
+the __manager__’s creation instruction can also implicitly determine the
+source object for instructions (object creations and method calls) performed
+in the constructor:
+
+[cols=2*,separator=¦,frame=none,grid=none]
+|===
+
+a¦
+[source,scala]
+----
+object test { <1>
+	new adapter
+	call adapter.init { <2>
+		new manager { <3>
+			new context
+		}
+	}
+}
+----
+<1> The object _test_ is the source object for both enclosed operations
+(__new__ and __call__).
+<2> The object _adapter_ is the source object for the enclosed operation
+(__new__).
+<3> The object _manager_ is the source object for the enclosed operation
+(__new__).
+
+a¦
+image::newInitManagerContext.png[NewInitManagerContext,align="left"]
+|===
+
+NOTE: The *object creation* statement implicitly provides the *context* (the
+*source* object) for the enclosed operations.
+
+=== Object declarations
+
+Finally we are ready to show the complete example:
+
+[cols=2*,separator=¦,frame=none,grid=none]
+|===
+
+a¦
+[source,scala]
+----
+objects { <1>
+    test: AdapterTest | named existing <2>
+    adapter: Adapter
+    manager: Manager
+    context: Context
+}
+
+object test {
+    new adapter
+    call adapter.init {
+        new manager {
+            new context
+        }
+    }
+    call manager.manage(arg1, arg2) {
+        loop {
+            call context.getItem
+        }
+    }
+}
+----
+<1> The keyword _objects_ encloses the **object declarations**.
+<2> The words _named_ and _existing_ are *flags* describing object attributes.
+They corresponding to _sdedit_ flags.
+
+a¦
+image::simple.png[SimpleDiagram,align="right",width=900]
+|===
+
+=== Return clauses
+
+Adding returned objects or values to diagrams can significantly improve 
+readability. 
+SDEditGen's syntax supports _return_ clauses in object creation and 
+method call statements:
+
+[source,scala]
+----
+new targetObject(arguments) return expression
+call targetObject.method(arguments) return expression
+----
+
+In my view this syntax is considerably easier to read and understand
+than the original _sdedit_ syntax.
+The following diagram includes several _return_ clauses:
+
+[source,scala]
+----
+object bfs {
+    new queue
+    call someNode.setLevel(0)
+    call queue.insert(someNode)
+    loop "while queue != ()" {
+        call queue.remove() return node <1>
+        call node.getLevel() return level
+        call node.getAdjacentNodes() return adjList
+        loop "0 <= i < #adjList" {
+            call adjList.get(i) return adj
+            call adj.getLevel() return nodeLevel
+            alt "nodeLevel IS NOT defined" { <2>
+                call adj.setLevel(`level+1`)
+                call queue.insert(adj)
+            section "else"
+            }
+        }
+    }
+    call queue.destroy()
+}
+----
+<1> An example of a method returning an object
+<2> The *alt* construct corresponds to _[c:alt]_ construct in _sdedit_ 
+
+image::breadthFirstWhole.png[BreadthFirstWhole,align="left"]
+
+=== Diagram links
+
+The following diagram contains several _diagramLink_ statements:
+
+[source,scala]
+----
+objects {
+    test: ProtocolAdapterTest | existing
+    adapter: ProtocolAdapter
+    configurator: ProtocolAdapterConfigurator
+    confHelp: ConfigurationHelper
+    manager: Manager
+    protocolBuilder: ProtocolBuilder
+    protocol: Protocol
+}
+
+object test {
+    new adapter;
+    call adapter.init(configuration) {
+        new configurator(this, configuration) {
+            new confHelp(this);
+        }
+        new manager(configurator) {
+            new protocolBuilder;
+			
+            diagramLink "Create_Metadata.sd" 1; <1>
+            call protocolBuilder.add(Metadata);
+			
+            diagramLink "Create_Leaf.sd" 2;
+            call protocolBuilder.add(Leaf);
+
+            loop { <2>
+                call protocolBuilder.add(Hierarchy);
+            }
+            call protocolBuilder.add(Top);
+            call protocolBuilder.add(Timestamp);
+            call protocolBuilder.build {
+                new protocol(this) {
+                    call protocol "Copy items from builder"; <3>
+                }
+            }
+        }
+    }
+}
+----
+<1> The *diagramLink* statement creates a link to another _sdedit_
+diagram
+<2> The *loop* construct corresponds to _[c:loop]_ construct 
+in __sdedit__.
+<3> A _method name_ doesn't have to be an __identifier__, it can be 
+descriptive. The _dot_ character between object name and method name
+is __optional__. A statement can end with a __semicolon__, but it is 
+_optional_ as well.
+
+Here is the generated diagram:
+
+image::complex.png[ComplexDiagram,align="left"]
+
+=== Syntax diagrams
+
+The SDEditGen syntax is described in the form of {railroadDiagrams}
+generated by {rrdTool} tool. The following *excerpt* illustrates 
+how they look:
+
+image::syntaxExcerpt.png[SyntaxExcerpt,align="left"]
+
+=== Running
+
+SDEditGen currently doesn't include a graphical user interface. 
+There are two ways of converting the source SDEDitGen code to 
+sdedit format: an HTTP server and a command-line interface.
+
+==== HTTP server
+
+An HTTP server which converts from SDEDitGen to sdedit format allows 
+us to use GUI of an HTTP client application like __Insomnia__.
+
+The server can be started from command line using `sbt runMain` command: 
+
+[source,scala]
+----
+sbt "runMain sdeditgen.Server"
+----
+
+Alternatively, you can first start _sbt_ and then execute __runMain__:
+
+[source,scala]
+----
+$ sbt
+
+> runMain sdeditgen.Server
+----
+
+The command starts the server on the port **8080**. To convert from SDEditGen 
+source code to sdedit format just issue an HTTP *POST* request to the 
+following endpoint:
+
+[source,]
+----
+localhost:8080/generate
+----
+
+With _Insomnia_ it looks like this: 
+
+image::insomnia.png[Insomnia,align="left"]
+
+==== Command-line interface
+
+An SDEditGen source file can be converted into sdedit form by the
+following command:
+
+[source,scala]
+----
+sbt "runMain sdeditgen.CLI <input file path> <output folder path>"
+----
+
+Both paths can be relative or absolute. If _<output folder path>_ is
+a relative path it is interpreted as a subfolder of the input folder.
+If _<output folder path>_ is a dot character the input and output folders
+are the same.
+
+The input file's extension must be __sdgen__. 
+
+Let's see several examples:
+
+[source,scala]
+----
+sbt "runMain sdeditgen.CLI /users/jsmith/source/demo.sdgen target"
+
+sbt "runMain sdeditgen.CLI /users/jsmith/source/demo.sdgen /users/jsmith/source/target"
+
+sbt "runMain sdeditgen.CLI source/demo.sdgen target"
+
+sbt "runMain sdeditgen.CLI demo.sdgen ."
+----
+
+Of course, an alternative way is to start _sbt_ and execute __runMain__ 
+in __sbt shell__:
+
+[source,scala]
+----
+$ sbt
+
+> runMain sdeditgen.CLI <input file path> <output folder path>
+----
