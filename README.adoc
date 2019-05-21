@@ -6,6 +6,7 @@ Hrvoje Nezic
 ifndef::env-github[]
 :toc: left
 :toclevels: 4
+:leftOrRight: right
 endif::[]
 ifdef::env-github[]
 :tip-caption: :bulb:
@@ -13,6 +14,7 @@ ifdef::env-github[]
 :important-caption: :heavy_exclamation_mark:
 :caution-caption: :fire:
 :warning-caption: :warning:
+:leftOrRight: left
 endif::[]
 :imagesdir: images
 :qsde: http://sdedit.sourceforge.net[Quick Sequence Diagram Editor]
@@ -55,9 +57,16 @@ __automatic redrawing__.
 In my view this is the *most important* feature for real-world complex
 diagrams! For toy examples it is not needed, of course.
 
+ifndef::env-github[]
 image::links.png[Links,align="left",float="right"]
+endif::[]
+ifdef::env-github[]
+++++
+<img align="left" role="right" src="images/links.png?raw=true"/>
+++++
+endif::[]
 
-The diagram to the right includes the links to diagrams _Create_Matadata.sd_
+The diagram to the {leftOrRight} includes the links to diagrams _Create_Matadata.sd_
 and _Create_leaf.sd_. When the user *clicks* on a _diagram link_ the
 application will *replace* the current diagram with the clicked one,
 and also display the newly opened diagram name in the tree view.
