@@ -55,7 +55,7 @@ __automatic redrawing__.
 In my view this is the *most important* feature for real-world complex
 diagrams! For toy examples it is not needed, of course.
 
-image::links.PNG[Links,align="left",float="right"]
+image::links.png[Links,align="left",float="right"]
 
 The diagram to the right includes the links to diagrams _Create_Matadata.sd_
 and _Create_leaf.sd_. When the user *clicks* on a _diagram link_ the
@@ -294,12 +294,10 @@ NOTE: The *object creation* statement implicitly provides the *context* (the
 
 Finally we are ready to show the complete example:
 
-ifndef::env-github[]
 [cols=2*,separator=¦,frame=none,grid=none]
 |===
 
 a¦
-endif::[]
 [source,scala]
 ----
 objects { <1>
@@ -327,13 +325,9 @@ object test {
 <2> The words _named_ and _existing_ are *flags* describing object attributes.
 They corresponding to _sdedit_ flags.
 
-ifndef::env-github[]
 a¦
-endif::[]
 image::simple.png[SimpleDiagram,align="right",width=900]
-ifndef::env-github[]
 |===
-endif::[]
 
 === Return clauses
 
