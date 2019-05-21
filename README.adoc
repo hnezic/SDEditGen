@@ -330,8 +330,8 @@ They corresponding to _sdedit_ flags.
 ifndef::env-github[]
 a¦
 endif::[]
-ifndef::env-github[]
 image::simple.png[SimpleDiagram,align="right",width=900]
+ifndef::env-github[]
 |===
 endif::[]
 
