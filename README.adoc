@@ -29,11 +29,11 @@ better known as __sdedit__.
 _QSDE / sdedit_ is an excellent open source _text to UML_ tool, but its
 syntax is not
 so nice: it is often unintutitive, cryptic, and hard to remember.
-Also, like syntax of many sequence diagram tools, _QSDE's_ syntax is
+Also, like syntax of many sequence diagram tools, _sdedit's_ syntax is
 __unstructured__. It is easy to create and read a _Hello world (Bob -> Alice)_
 example, but it is much harder to write and read complex real-world diagrams.
 _SDEditGen_ aims to provide a structured, nicer, easier and more
-intuitive syntax for __QSDE / sdedit__.
+intuitive syntax for __sdedit__.
 
 == QSDE / sdedit: good parts
 
@@ -84,7 +84,7 @@ the only solution is to break a potentially big diagram into smaller
 interlinked diagrams.
 
 There are many _text to UML_ tools but it is questionable whether any
-open source or inexpensive tool besides _QSDE / sdedit_ includes
+open source or inexpensive tool besides _sdedit_ includes
 a similar functionality.
 
 == What's wrong with sdedit
@@ -98,11 +98,11 @@ The source code written in modern programming languages is **structured**:
 individual declarations and instructions
 reside in *classes* and **methods**, they are not just floating around.
 
-On the other hand, the code in _QSDE / sdedit_ and many other _text to UML_
+On the other hand, the code in _sdedit_ and many other _text to UML_
 tools is **unstructured**: these tools don't provide the means to reflect
 the structure present in the source code.
 
-The basic syntax for sending messages in _QSDE / sdedit_ is following:
+The basic syntax for sending messages in _sdedit_ is following:
 
 [source,java]
 ----
@@ -116,7 +116,7 @@ just a sequence of such instructions.
 
 Object-oriented programming languages don't force us to specify the current
 object when we call methods of other objects. Unlike that, when we are writing
-_QSDE / sdedit_ code we must specify the current object each time. For example:
+_sdedit_ code we must specify the current object each time. For example:
 
 [cols=2*,separator=¦,frame=none,grid=none]
 |===
@@ -437,8 +437,6 @@ in __sdedit__.
 descriptive. The _dot_ character between object name and method name
 is __optional__. A statement can end with a __semicolon__, but it is 
 _optional_ as well.
-
-Here is the generated diagram:
 
 image::complex.png[ComplexDiagram,align="left"]
 
