@@ -3,6 +3,7 @@ Hrvoje Nezic
 :nofooter:
 :source-highlighter: prettify
 :icons: font
+:tabsize: 4
 ifndef::env-github[]
 :toc: left
 :toclevels: 4
